@@ -6,10 +6,10 @@
         </label>
     <nav class="menu-lateral1">
         <ul>
-            <li><a href="">Perfil</a></li>
-            <li><a href="">Perfil Funcional</a></li>
-            <li><a href="">Mis Postulaciones</a></li>
-            <li><a href="">Buscar Trabajo</a></li>
+            <a class="arf" href="../VIEW/perfil.php"><li>Perfil</li></a>
+            <a class="arf" href="../VIEW/perfil-funcional.php"><li>Perfil Funcional</li></a>
+            <a class="arf" href=""><li>Mis Postulaciones</li></a>
+            <a class="arf" href=""><li>Buscar Trabajo</li></a>
         </ul>
     </nav>
 </div>

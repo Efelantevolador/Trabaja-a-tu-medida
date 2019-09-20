@@ -25,7 +25,7 @@
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
             <div class="col-xl-3">
-            <?php require("../VIEW/esential/menu-lateral.php");?>
+                <?php require("../VIEW/esential/menu-lateral.php");?>
             </div>
                 <!--*****************|CONTENIDO|**************************************-->
                     <div class="col-xl-9">
@@ -321,8 +321,7 @@
                             </div>
                         </div>
                     </div>    
-                <!--*****************|CONTENIDO|**************************************-->
-            </div>    
+                <!--*****************|CONTENIDO|**************************************-->  
         </div>
     </div>
     <?php require("../VIEW/esential/footer.php");?>
