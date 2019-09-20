@@ -153,3 +153,59 @@ footer{
     }
 }
 /*------------------------------------FOOTER--------------------------------------------*/
+
+
+
+/*-------------------------------MENU LATERAL-------------------------------------------*/
+.contenido-all{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    margin-top:80px;
+}
+.contenido-all label{
+    position:relative;
+    width:100%;
+    max-width:1000px;
+    bottom:100px;
+    right:20px;
+    font-size: 25px;
+    color:#ffff;
+    cursor:pointer;
+    transition:all 300ms;
+    background: #202020;
+}
+.menu-lateral1{
+    position:relative;
+    bottom:108px;
+    right:20px;
+    width:0px;
+    height:100vh;
+    color:#fff;
+    background: #202020;
+    overflow:hidden;
+    transition:all 300ms;
+}
+.menu-lateral1 li{
+    list-style:none;
+    padding:13px;
+    color:#fff;
+    cursor:pointer;
+    transition:all 300ms;
+    display:block;
+    width:100%;
+}
+.menu-lateral1 li a{
+    text-decoration: none;
+    color:#fff;
+}
+.menu-lateral1 li:hover{
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid red;
+}
+#check{
+    display:none;
+}
+#check:checked ~ .menu-lateral1{
+    width:100%;
+}
