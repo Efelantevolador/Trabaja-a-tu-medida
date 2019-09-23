@@ -24,11 +24,11 @@
     <?php require("../VIEW/esential/navbar.php")?>
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
-            <div class="col-xl-3">
+            <div class="col-xl-2">
                 <?php require("../VIEW/esential/menu-lateral.php");?>
             </div>
                 <!--*****************|CONTENIDO|**************************************-->
-                    <div class="col-xl-9">
+                    <div class="col-xl-10">
                         <div class="container" style="margin-top:30px;">
                             <div class="row align-content-center">
                                 <div class="col-xl-1 text-center"></div>
@@ -119,7 +119,7 @@
                                                 </div>
 
                                                 
-                                                <div class="col-xl-2" id="muleta">
+                                                <div class="col-xl-4" id="muleta">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
@@ -132,7 +132,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-2" id="Baston">
+                                                <div class="col-xl-4" id="Baston">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
@@ -145,7 +145,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-3" id="Silla">
+                                                <div class="col-xl-4" id="Silla">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
@@ -158,7 +158,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-2" id="Ortesis">
+                                                <div class="col-xl-4" id="Ortesis">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
@@ -171,7 +171,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-2" id="Burrito">
+                                                <div class="col-xl-4" id="Burrito">
                                                     <div class="input-group mb-3">
                                                         <div class="input-group-prepend">
                                                             <div class="input-group-text">
