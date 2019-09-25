@@ -11,7 +11,7 @@
     <body>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     
-    <?php require("../VIEW/esential/navbar.php")?>
+<?php require("../VIEW/esential/navbar.php")?>
 
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
             <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->

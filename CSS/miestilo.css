@@ -214,7 +214,7 @@ footer{
 #check{
     display:none;
 }
-#check:checked ~ .menu-lateral1{
+#check:checked ~ .menu-lateral1{ /*seudo clase todo lo que este despues de los :*/
     width:100%;
 }
 /*-------------------------------MENU LATERAL-------------------------------------------*/
@@ -239,3 +239,8 @@ footer{
   color: blue!important;
 }
 /*-------------------------------1 PERFIL FUNCIONAL (IMAGENES CHECKED) -------------------------------------------*/
+
+
+/*-------------------------------Perfil-Funcional-------------------------------------------*/
+
+/*-------------------------------Perfil-Funcional-------------------------------------------*/
