@@ -126,7 +126,7 @@
                                                         </div>
                                                         <input type="text" value="Brazo Izquierdo" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/protesis mano.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -139,7 +139,7 @@
                                                         </div>
                                                         <input type="text" value="Brazo Derecho" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/protesis mano.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div><div class="col-xl-6" id="PIzquierdo">
@@ -151,7 +151,7 @@
                                                         </div>
                                                         <input type="text" value="Pie Izquierdo" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/protesis.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -164,7 +164,7 @@
                                                         </div>
                                                         <input type="text" value="Pie Derecho" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/protesis.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -218,7 +218,7 @@
                                                         </div>
                                                         <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/muleta.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -231,7 +231,7 @@
                                                         </div>
                                                         <input type="text" value="Baston" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/sillaRueda.jpeg" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/baston.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -257,7 +257,7 @@
                                                         </div>
                                                         <input type="text" value="Ortesis" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/ortesis.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -270,7 +270,7 @@
                                                         </div>
                                                         <input type="text" value="Burrito" class="form-control" disabled aria-label="Text input with checkbox">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../CSS/open-iconic-master/png/Shield-3x.png" alt="icon name"></label>
+                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/burrito.png" alt="icon name"></label>
                                                         </div>
                                                     </div>
                                                 </div>
