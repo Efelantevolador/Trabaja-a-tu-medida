@@ -33,7 +33,7 @@
         elemento0 = document.getElementById("pregunta2");
         elemento0.style.display='block';
         elemento1 = document.getElementById("opcionp2");
-        elemento1.style.display='flex';
+        elemento1.style.display='block';
         elemento2 = document.getElementById("cuerpos");
         elemento2.style.display='flex';
     }
@@ -162,6 +162,14 @@
             PD.style.display='none';
         }
     }
+    function ParalisisMostrar(){
+        CBX = document.getElementById("comboboxParalisis");
+        CBX.style.display='block';
+    }
+    function ParalisisOcultar(){
+        CBX = document.getElementById("comboboxParalisis");
+        CBX.style.display='none';
+    }
 </script>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <?php require("../VIEW/esential/navbar.php")?>
@@ -243,21 +251,23 @@
                                                 <div class="col-xl-12 text-center" id="pregunta2" style="margin-top:35px;display:none;">
                                                     <h5>¿Usted utiliza protesis para su vida diaria ?</h5>
                                                 </div>
-                                                <div class="container-fluid row" id="opcionp2" style="display:none;">    
-                                                    <div class="col-xl-5"></div>   
-                                                    <div class="col-xl-1 text-center">
-                                                        <label for="">
-                                                            <input type="radio" name="protesis" id="si" onclick="javascript:protesisMostrar()">
-                                                            <p>Si</p>
-                                                        </label>
-                                                    </div>        
-                                                    <div class="col-xl-1 text-center">
-                                                        <label for="">
-                                                            <input type="radio" name="protesis" id="no" onclick="javascript:protesisOcultar()">
-                                                            <p>no</p>
-                                                        </label>
-                                                    </div>
-                                                    <div class="col-xl-5"></div>
+                                                <div class="container-fluid" id="opcionp2" style="display:none;">
+                                                    <div class="row">  
+                                                        <div class="col-xl-5"></div>   
+                                                        <div class="col-xl-1 text-center">
+                                                            <label for="">
+                                                                <input type="radio" name="protesis" id="si" onclick="javascript:protesisMostrar()">
+                                                                <p>Si</p>
+                                                            </label>
+                                                        </div>        
+                                                        <div class="col-xl-1 text-center">
+                                                            <label for="">
+                                                                <input type="radio" name="protesis" id="no" onclick="javascript:protesisOcultar()">
+                                                                <p>no</p>
+                                                            </label>
+                                                        </div>
+                                                        <div class="col-xl-5"></div>
+                                                    </div>  
                                                 </div>
 
                                                 <div class="col-xl-6" id="BIzquierdo" style="display:none;">
@@ -321,109 +331,111 @@
                                                 <div class="col-xl-5"></div>   
                                                 <div class="col-xl-1 text-center">
                                                     <label for="">
-                                                        <input type="radio" name="paralisis" id="si" onclick="javascript:AyudasMostrar()">
+                                                        <input type="radio" name="paralisis" id="si" onclick="javascript:ParalisisMostrar()">
                                                         <p>Si</p>
                                                     </label>
                                                 </div>    
                                                 <div class="col-xl-1 text-center">
                                                     <label for="">
-                                                        <input type="radio" name="paralisis" id="no" onclick="javascript:AyudasOcultar()">
+                                                        <input type="radio" name="paralisis" id="no" onclick="javascript:ParalisisOcultar()">
                                                         <p>no</p>
                                                     </label>
                                                 </div>
                                                 <div class="col-xl-5"></div>
 
-
-                                                <div class="col-xl-4"></div>
-                                                <div class="col-xl-4">
-                                                    <div class="input-group">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="comboboxP">Tipo :</label>
-                                                        </div>
-                                                        <select class="custom-select">
-                                                        <option selected disabled id="combotortuga" value="0">-Paralisis-</option>
-                                                        
-                                                        </select>
+                                                <div class="container-fluid" id="comboboxParalisis" style="display:none;">
+                                                    <div class="row">
+                                                        <div class="col-xl-4"></div>
+                                                            <div class="col-xl-4">
+                                                                <div class="input-group">
+                                                                    <div class="input-group-append">
+                                                                        <label class="input-group-text" for="comboboxP">Tipo :</label>
+                                                                    </div>
+                                                                    <select class="custom-select">
+                                                                    <option selected disabled id="combotortuga" value="0">-Paralisis-</option>
+                                                                    
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        <div class="col-xl-4"></div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4"></div>
+                                                
 
                                                 <div class="col-xl-12" style="margin-top:20px;margin-bottom:20px;"></div>
 
-
-                                                <div class="col-xl-12 text-center" style="margin-bottom:30px;">
-                                                    <h5>Seleccione las ayudas que usted utiliza diariamente.</h5>
-                                                </div>
-                                                
-                                                <div class="col-xl-4"id="muleta">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                <div class="container" id="Ayudas" style="display:none;">
+                                                    <div class="row">
+                                                        <div class="col-xl-12 text-center" style="margin-bottom:30px;">
+                                                            <h5>Seleccione las ayudas que usted utiliza diariamente.</h5>
+                                                        </div>
+                                                        <div class="col-xl-4"id="muleta">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                                <div class="input-group-append">
+                                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../images/muleta.png" alt="icon name"></label>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <input type="text" value="Muletas" class="form-control" disabled aria-label="Text input with checkbox">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/muleta.png" alt="icon name"></label>
+                                                        <div class="col-xl-4" id="Baston">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="ayudap" type="checkbox" id="Ibaston" aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" value="Baston" class="form-control" disabled aria-label="Text input with checkbox">
+                                                                <div class="input-group-append">
+                                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../images/baston.png" alt="icon name"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4" id="Silla">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" value="Silla de Ruedas" class="form-control" disabled aria-label="Text input with checkbox">
+                                                                <div class="input-group-append">
+                                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../images/sillaRueda.jpeg" alt="icon name"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4" id="Ortesis">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" value="Ortesis" class="form-control" disabled aria-label="Text input with checkbox">
+                                                                <div class="input-group-append">
+                                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../images/ortesis.png" alt="icon name"></label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-4" id="Burrito">
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-prepend">
+                                                                    <div class="input-group-text">
+                                                                        <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
+                                                                    </div>
+                                                                </div>
+                                                                <input type="text" value="Burrito" class="form-control" disabled aria-label="Text input with checkbox">
+                                                                <div class="input-group-append">
+                                                                    <label class="input-group-text" for="inputGroupSelect02"><img src="../images/burrito.png" alt="icon name"></label>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4" id="Baston">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="ayudap" type="checkbox" id="Ibaston" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" value="Baston" class="form-control" disabled aria-label="Text input with checkbox">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/baston.png" alt="icon name"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4" id="Silla">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" value="Silla de Ruedas" class="form-control" disabled aria-label="Text input with checkbox">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/sillaRueda.jpeg" alt="icon name"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4" id="Ortesis">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" value="Ortesis" class="form-control" disabled aria-label="Text input with checkbox">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/ortesis.png" alt="icon name"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-4" id="Burrito">
-                                                    <div class="input-group mb-3">
-                                                        <div class="input-group-prepend">
-                                                            <div class="input-group-text">
-                                                                <input name="ayudap" type="checkbox" id="Imuleta" aria-label="Checkbox for following text input">
-                                                            </div>
-                                                        </div>
-                                                        <input type="text" value="Burrito" class="form-control" disabled aria-label="Text input with checkbox">
-                                                        <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02"><img src="../images/burrito.png" alt="icon name"></label>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                
-                                                
                                             </div>
                                         </form>
                                     <!--****************************|FORMULARIO INFORMACION FUNCIONAL|******************************************-->
