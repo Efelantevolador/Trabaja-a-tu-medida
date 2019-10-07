@@ -73,7 +73,7 @@
             <a class="arf" href="../VIEW/perfil.php"><li>Perfil</li></a>
             <a class="arf" href="../VIEW/perfil-funcional.php"><li>Perfil Funcional</li></a>
             <a class="arf" href="../VIEW/job.php"><li>Buscar Trabajo</li></a>
-            <a class="arf" href=""><li>Mis Postulaciones</li></a>
+            <a class="arf" href="../VIEW/postulaciones.php"><li>Mis Postulaciones</li></a>
         </ul>
     </nav>
 </div>
