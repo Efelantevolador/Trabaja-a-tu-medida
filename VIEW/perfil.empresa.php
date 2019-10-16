@@ -78,25 +78,7 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                                         </div>
-                                                        <select name="region" class="custom-select" id="inputGroupSelect02">
-                                                            <option disabled>- Región -</option>
-                                                            <option <?php if($viv->getRegion()==15){echo "selected";}?> value="15">Región de Arica y Parinacota</option>
-                                                            <option <?php if($viv->getRegion()==1){echo "selected";}?> value="1">Región de Tarapacá</option>
-                                                            <option <?php if($viv->getRegion()==2){echo "selected";}?> value="2">Región de Antofagasta</option>
-                                                            <option <?php if($viv->getRegion()==3){echo "selected";}?> value="3">Región de Atacama</option>
-                                                            <option <?php if($viv->getRegion()==4){echo "selected";}?> value="4">Región de Coquimbo</option>
-                                                            <option <?php if($viv->getRegion()==5){echo "selected";}?> value="5">Región de Valparaíso</option>
-                                                            <option <?php if($viv->getRegion()==13){echo "selected";}?> value="13">Región de Metropolitana de Santiago</option>
-                                                            <option <?php if($viv->getRegion()==6){echo "selected";}?> value="6">Región de Libertador General Bernardo O'Higgins</option>
-                                                            <option <?php if($viv->getRegion()==7){echo "selected";}?> value="7">Región de Maule</option>
-                                                            <option <?php if($viv->getRegion()==16){echo "selected";}?> value="16">Región de Ñuble</option>
-                                                            <option <?php if($viv->getRegion()==8){echo "selected";}?> value="8">Región de Biobío</option>
-                                                            <option <?php if($viv->getRegion()==9){echo "selected";}?> value="9">Región de La Araucanía</option>
-                                                            <option <?php if($viv->getRegion()==14){echo "selected";}?> value="14">Región de Los Ríos</option>
-                                                            <option <?php if($viv->getRegion()==10){echo "selected";}?> value="10">Región de Los Lagos</option>
-                                                            <option <?php if($viv->getRegion()==11){echo "selected";}?> value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
-                                                            <option <?php if($viv->getRegion()==12){echo "selected";}?> value="12">Región de Magallanes y de la Antártica Chilena</option>
-                                                        </select>
+                                                        
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4">
@@ -104,7 +86,7 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                                         </div>
-                                                        <input type="text" name="comuna" value="<?php echo $viv->getComuna();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4"></div>
@@ -113,7 +95,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Calle :</span>
                                                         </div>
-                                                        <input type="text" name="calle" value="<?php echo $viv->getCalle();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="calle" value="">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-3">
@@ -121,12 +103,10 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">N° calle # :</span>
                                                         </div>
-                                                        <input type="text" name="ncalle" value="<?php echo $viv->getNum_calle();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="ncalle" value="">
                                                     </div>
-                                                </div>
-                                                <div class="col-xl-12 mb-3">
-                                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
-                                                </div>
+                                                
+                                                
 
                                             </div>
                                         </form>    
@@ -188,10 +168,40 @@
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Numero asensores :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Numero rampas :</span>
                                                         </div>
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
+                                                </div>
+
+                                                <div class="col-xl-4">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Numero de baños aptos:</span>
+                                                        </div>
+                                                        <input type="text" name="numeroAsensores" value="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-4">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Numero de estacionamientos aptos:</span>
+                                                        </div>
+                                                        <input type="text" name="numeroAsensores" value="">
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-xl-4">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Numero de puertas amplias:</span>
+                                                        </div>
+                                                        <input type="text" name="numeroAsensores" value="">
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-12 mb-3">
+                                                    <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
                                                 </div>
                                                 
                                                 

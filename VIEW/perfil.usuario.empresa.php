@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
                             <div class="row align-content-center">
                                 <div class="col-xl-1 text-center"></div>
                                 <div class="col-xl-10 text-center">
-                                    <h1>Perfil usuario </h1>
+                                    <h1>Perfil empresa </h1>
                                 </div>
                                 <div class="col-xl-1 text-center"></div>
                                 <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
@@ -89,9 +89,9 @@
                                             
                                                 
                                                       
-                                                
-                                            
-                                
+                                                    </div>
+                                                </div>
+                                               
                                              </div> 
                          
                                         </div>
@@ -99,7 +99,7 @@
                                 </div>    
                 
                             </div>
-                    
+                        </div>
     <?php require("../VIEW/esential/footer.php");?>
 <!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
