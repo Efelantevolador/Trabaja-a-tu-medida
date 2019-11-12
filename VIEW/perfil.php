@@ -230,27 +230,35 @@
                                                 <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-append">
-                                                            <label class="input-group-text" for="inputGroupSelect02">Nivel Educacional :</label>
+                                                            <label class="input-group-text" for="inputGroupSelect02">Nivel Educacional:</label>
                                                         </div>
                                                         <select class="custom-select" id="inputGroupSelect02">
                                                             <option value="" selected disabled>- Seleccione -</option>
-                                                            <option value="0">Educación Especial</option>
                                                             <option value="0">Educación básica</option>
-                                                            <option value="0">Educación básica</option>
-                                                            <option value="0">Educación media incompleta</option>
-                                                            <option value="0">Educación media completa</option>
-                                                            <option value="0">Educación media técnico profecional incompleta</option>
-                                                            <option value="0">Educación media técnico profecional completa</option>
-                                                            <option value="0">Educación Superior incompleta</option>
-                                                            <option value="0">Educación Superior completa</option>
+                                                            <option value="0">Educación media</option>
+                                                            <option value="0">Educación media técnico profecional</option>
+                                                            <option value="0">Educación Superior</option>
                                                             <option value="0">Post-grado</option>
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6">
                                                     <div class="input-group mb-2">
+                                                        <div class="input-group-append">
+                                                            <label class="input-group-text" for="inputGroupSelect02">Estado:</label>
+                                                        </div>
+                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                            <option value="" selected disabled>- Seleccione -</option>
+                                                            <option value="0">En curso</option>
+                                                            <option value="0">Graduado</option>
+                                                            <option value="0">Abandonado</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xl-6">
+                                                    <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Titulo Cursado u Obtenido :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Institución:</span>
                                                         </div>
                                                         <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
@@ -258,19 +266,38 @@
                                                 <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Institución :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Titulo Cursado u Obtenido:</span>
                                                         </div>
                                                         <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-6">
+                                                
+                                                <div class="col-xl-4">
                                                     <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Año de Egreso o termino :</span>
+                                                        <div class="input-group-append">
+                                                            <label class="input-group-text" for="inputGroupSelect02">Año de inicio:</label>
                                                         </div>
-                                                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                            <option value="" selected disabled>- Seleccione -</option>
+                                                            <option value="0">2019</option>
+                                                            <option value="0">2018</option>
+                                                        </select>
                                                     </div>
                                                 </div>
+                                                <div class="col-xl-2"></div>
+                                                <div class="col-xl-4">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-append">
+                                                            <label class="input-group-text" for="inputGroupSelect02">Año de Termino:</label>
+                                                        </div>
+                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                            <option value="" selected disabled>- Seleccione -</option>
+                                                            <option value="0">2019</option>
+                                                            <option value="0">2018</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
                                                 <div class="col-xl-12 mb-3">
                                                     <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Agregar Información">
                                                 </div>
@@ -280,36 +307,40 @@
                                             <thead class="thead-dark">
                                                 <tr>
                                                     <th scope="col">Nivel Educacional</th>
+                                                    <th scope="col">Estado</th>
                                                     <th scope="col">Titulos Cursados u Obtenidos</th>
                                                     <th scope="col">Institución</th>
-                                                    <th scope="col">Año Egresado</th>
+                                                    <th scope="col">Año [inicio - Termino]</th>
                                                     <th scope="col">Eliminar</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Educación Media Completa</td>
+                                                    <td>Educación Media</td>
+                                                    <td>En curso</td>
                                                     <td>4to Medio</td>
                                                     <td>Boston Collegue</td>
-                                                    <td>2015</td>
+                                                    <td>2015-Actualidad</td>
                                                     <td>
                                                         <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Educación Media Completa</td>
-                                                    <td>4to Medio</td>
-                                                    <td>Boston Collegue</td>
-                                                    <td>2015</td>
+                                                    <td>Educación Superior</td>
+                                                    <td>En curso</td>
+                                                    <td>Ingenieria en informatica</td>
+                                                    <td>Inacap</td>
+                                                    <td>Iniciado en 2015</td>
                                                     <td>
                                                         <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Educación Media Completa</td>
-                                                    <td>4to Medio</td>
-                                                    <td>Boston Collegue</td>
-                                                    <td>2015</td>
+                                                    <td>Educación Superior</td>
+                                                    <td>Graduado</td>
+                                                    <td>Ing Informatica</td>
+                                                    <td>Inacap</td>
+                                                    <td>2015-2019</td>
                                                     <td>
                                                         <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
                                                     </td>
