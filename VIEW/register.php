@@ -1,9 +1,13 @@
+<?php
+header('Content-Type: text/html; charset=UTF-8');
+?>
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Registro</title>
         <meta name="description" content="">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../CSS/bootstrap-css/bootstrap.min.css">
         <link rel="stylesheet" href="../CSS/miestilo.css">
@@ -12,7 +16,8 @@
     </head>
     <body>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
-        <?php require("../VIEW/esential/navbar.php")?>
+        <?php require("../VIEW/esential/navbar.php");
+        require_once("../CONTROLER/Region_controller.php");?>
             <div class="container-fluid">
                 <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
                         <div class="col-xl-3" style="border:0px black solid;"></div><!--Izquierda de pagina-->
@@ -134,22 +139,12 @@
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect02">
                                                 <option selected disabled>- Región -</option>
-                                                <option value="15">Región de Arica y Parinacota</option>
-                                                <option value="1">Región de Tarapacá</option>
-                                                <option value="2">Región de Antofagasta</option>
-                                                <option value="3">Región de Atacama</option>
-                                                <option value="4">Región de Coquimbo</option>
-                                                <option value="5">Región de Valparaíso</option>
-                                                <option value="13">Región de Metropolitana de Santiago</option>
-                                                <option value="6">Región de Libertador General Bernardo O'Higgins</option>
-                                                <option value="7">Región de Maule</option>
-                                                <option value="16">Región de Ñuble</option>
-                                                <option value="8">Región de Biobío</option>
-                                                <option value="9">Región de La Araucanía</option>
-                                                <option value="14">Región de Los Ríos</option>
-                                                <option value="10">Región de Los Lagos</option>
-                                                <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
-                                                <option value="12">Región de Magallanes y de la Antártica Chilena</option>
+                                                <?php
+                                                $r=new Region_controller;
+                                                $listar=$r->listar();
+                                                foreach ($listar as $r):?>
+                                                    <option value="<?php echo $r->getCod_region()?>"><?php echo $r->getNom_region()?></option>
+                                                <?php endforeach;?>
                                             </select>
                                         </div>
                                     </div>
@@ -158,7 +153,15 @@
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                             </div>
-                                            <input type="text" name="comuna" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <select class="custom-select" id="inputGroupSelect02">
+                                                <option selected disabled>- Comuna -</option>
+                                                <?php
+                                                $r=new Region_controller;
+                                                $listar=$c->listac();
+                                                foreach ($listar as $c):?>
+                                                    <option value="<?php echo $r->getCod_comuna()?>"><?php echo $r->getNom_comuna()?></option>
+                                                <?php endforeach;?>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-2"></div>
