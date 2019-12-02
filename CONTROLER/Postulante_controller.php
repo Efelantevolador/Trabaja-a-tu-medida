@@ -19,6 +19,17 @@
         alert("Error al modificar los datos");
         window.location="../view/perfil.php";
     }
+    function error_fecha(){
+        alert("La fecha de inicio de estudio no puede ser mayor a la fecha de fin");
+        window.location="../view/perfil.php";
+    }
+    function error_delest(){
+        alert("Error al eliminar el estudio");
+        window.location="../view/perfil.php";
+    }
+    function perfil(){
+        window.location="../view/perfil.php";
+    }
 
 </script>
 <?php
@@ -91,6 +102,40 @@
 
         public function setDiscapacidades(){
             
+        }
+
+        public function deleteEstudio($cod){
+            $est=new Estudio();
+            $pos=new Postulante();
+            $pos=$_SESSION["Postulante"];
+            $est->setRut($pos->getRut());
+            $est->setId_list($cod);
+            if($est->delete_estudio()==1){
+                echo "<script>perfil()</script>";
+            }
+            else{
+                echo "<script>error_delest()</script>";
+            }
+
+        
+        }
+
+        public function agregarEstudio(){
+            $est=new Estudio();
+            $est->setFecha_inicio($_POST["inicio"]);
+            $est->setNivel($_POST["nivel"]);
+            $est->setTitulo($_POST["titulo"]);
+            $est->setEstado($_POST["estado"]);
+            $est->setFecha_fin($_POST["fin"]);
+            $est->setInstitucion($_POST["institucion"]);
+            $pos=$_SESSION["Postulante"];
+            $est->setRut($pos->getRut());
+            if($est->getFecha_fin()!=null&&$est->getFecha_fin()>=$est->getFecha_inicio()){
+                $est->create_estudio();
+            }
+            else{
+                echo "<script>error_fecha()</script>";
+            }
         }
     }
 ?>

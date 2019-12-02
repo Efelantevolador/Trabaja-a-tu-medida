@@ -12,12 +12,15 @@
     <?php
         require_once("../MODEL/Postulante.php");
         require_once("../MODEL/Vivienda.php");
+        require_once("../MODEL/Estudio.php");
         session_start();
         $p=new Postulante();
         if(isset($_SESSION["Postulante"])){
             $p=$_SESSION["Postulante"];
             $viv=new Vivienda();
             $viv=$p->getVivienda();
+            $lista=$p->list_estudio();
+            $p->setLista_estudio($lista);
         }
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
@@ -225,20 +228,22 @@
                                 <!--****************************|Formulario INFORMACION PROFECIONAL|***************************************-->
                                     <div class="col-xl-12 borde-r" style="border-bottom:dotted 2px black;margin-bottom:15px;margin-top:35px;"> 
                                         <h1>Información Educacional [WIP]</h1>                            
-                                        <form action="">
+                                        <form method="post" action="../CONTROLER/ControladorBase.php">
+                                        <input type="hidden" name="c" value="Postulante_controller" />
+                                        <input type="hidden" name="a" value="agregarEstudio" />
                                             <div class="row">
                                                 <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Nivel Educacional:</label>
                                                         </div>
-                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                        <select class="custom-select" name="nivel" id="inputGroupSelect02">
                                                             <option value="" selected disabled>- Seleccione -</option>
-                                                            <option value="0">Educación básica</option>
-                                                            <option value="0">Educación media</option>
-                                                            <option value="0">Educación media técnico profecional</option>
-                                                            <option value="0">Educación Superior</option>
-                                                            <option value="0">Post-grado</option>
+                                                            <option value="1">Educación básica</option>
+                                                            <option value="2">Educación media</option>
+                                                            <option value="3">Educación media técnico profecional</option>
+                                                            <option value="4">Educación Superior</option>
+                                                            <option value="5">Post-grado</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -247,11 +252,11 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Estado:</label>
                                                         </div>
-                                                        <select class="custom-select" id="inputGroupSelect02">
+                                                        <select class="custom-select" name="estado" id="inputGroupSelect02">
                                                             <option value="" selected disabled>- Seleccione -</option>
                                                             <option value="0">En curso</option>
-                                                            <option value="0">Graduado</option>
-                                                            <option value="0">Abandonado</option>
+                                                            <option value="1">Graduado</option>
+                                                            <option value="2">Abandonado</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -260,7 +265,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Institución:</span>
                                                         </div>
-                                                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="institucion" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-6">
@@ -268,7 +273,7 @@
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Titulo Cursado u Obtenido:</span>
                                                         </div>
-                                                        <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="titulo" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                                     </div>
                                                 </div>
                                                 
@@ -277,10 +282,14 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Año de inicio:</label>
                                                         </div>
-                                                        <select class="custom-select" id="inputGroupSelect02">
-                                                            <option value="" selected disabled>- Seleccione -</option>
-                                                            <option value="0">2019</option>
-                                                            <option value="0">2018</option>
+                                                        <select class="custom-select" name="inicio" id="inputGroupSelect02">
+                                                            <?php
+                                                                $a=2019;
+                                                                for ($i = 1; $i <=70; $i++){
+                                                                    echo '<option value="'.$a.'">'.$a.'</option>';
+                                                                    $a=$a-1;
+                                                                }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -290,10 +299,14 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Año de Termino:</label>
                                                         </div>
-                                                        <select class="custom-select" id="inputGroupSelect02">
-                                                            <option value="" selected disabled>- Seleccione -</option>
-                                                            <option value="0">2019</option>
-                                                            <option value="0">2018</option>
+                                                        <select class="custom-select" name="fin" id="inputGroupSelect02">
+                                                        <?php
+                                                                $a=2019;
+                                                                for ($i = 1; $i <=70; $i++){
+                                                                    echo '<option value="'.$a.'">'.$a.'</option>';
+                                                                    $a=$a-1;
+                                                                }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -315,36 +328,38 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td>Educación Media</td>
-                                                    <td>En curso</td>
-                                                    <td>4to Medio</td>
-                                                    <td>Boston Collegue</td>
-                                                    <td>2015-Actualidad</td>
-                                                    <td>
-                                                        <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Educación Superior</td>
-                                                    <td>En curso</td>
-                                                    <td>Ingenieria en informatica</td>
-                                                    <td>Inacap</td>
-                                                    <td>Iniciado en 2015</td>
-                                                    <td>
-                                                        <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Educación Superior</td>
-                                                    <td>Graduado</td>
-                                                    <td>Ing Informatica</td>
-                                                    <td>Inacap</td>
-                                                    <td>2015-2019</td>
-                                                    <td>
-                                                        <a href="#"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
-                                                    </td>
-                                                </tr>
+                                                <?php
+                                                $listae=$p->getLista_estudio();
+                                                    foreach ($listae as $est):?>
+                                                        <tr>
+                                                            <td><?php 
+                                                            if($est->getNivel()==1){
+                                                                echo "Eduacion basica";
+                                                            }
+                                                            elseif($est->getNivel()==2){
+                                                                echo "Eduacion media";
+                                                            }
+                                                            elseif($est->getNivel()==3){
+                                                                echo "Eduacion media tecnico profesional";
+                                                            }
+                                                            elseif($est->getNivel()==4){
+                                                                echo "Eduacion Superior";
+                                                            }
+                                                            elseif($est->getNivel()==5){
+                                                                echo "Post-grado";
+                                                            }
+                                                            else{
+                                                                echo "NO RECONOCE";
+                                                            }?></td>
+                                                            <td><?php if($est->getEstado()==1){echo "En curso";}elseif($est->getEstado()==2){echo "Graduado";}elseif($est->getEstado()==3){echo "Abandonado";}else{echo "error";}?></td>
+                                                            <td><?php echo $est->getTitulo()?></td>
+                                                            <td><?php echo $est->getInstitucion()?></td>
+                                                            <td><?php echo $est->getFecha_inicio()?>-<?php if($est->getFecha_fin()==null){echo "Actualidad";}else{echo $est->getFecha_fin();}?></td>
+                                                            <td>
+                                                                <a href="../CONTROLER/ControladorBase.php?c=Postulante_controller&a=deleteEstudio&cod=<?php echo $est->getId_list()?>"><img src="../CSS/open-iconic-master/png/delete-3x.png" alt="Eliminar"></a>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endforeach;?>
                                             </tbody>
                                         </table>
                                     </div>    
