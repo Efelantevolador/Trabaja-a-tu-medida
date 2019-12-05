@@ -35,7 +35,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Rut :</span>
                                             </div>
-                                            <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" value="rut" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
@@ -43,7 +43,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Nombre :</span>
                                                 </div>
-                                                <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" value="name" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                     </div>
                                     <div class="col-xl-2"></div>
@@ -52,7 +52,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Apellido Paterno :</span>
                                             </div>
-                                            <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" value="apellidoP" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
@@ -60,7 +60,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Apellido Materno :</span>
                                             </div>
-                                            <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" value="apellidoM" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-12"></div>
@@ -69,7 +69,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">@email :</span>
                                             </div>
-                                            <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" value="email" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-5">
@@ -124,7 +124,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect02">
                                                 <option value="" selected disabled>- Año -</option>
-                                                <?php  for($i=1990;$i<=2020;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+                                                <?php  for($i=1950;$i<=2020;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
                                             </select>
                                         </div>
                                     </div>
