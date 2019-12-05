@@ -10,7 +10,7 @@
     </head>
     <body>
     
-<!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
+<!-- ********************************************|1 Pagina |*******************************************************************************************************************-->
     <?php require("../VIEW/esential/navbar.php")?>
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
@@ -41,17 +41,15 @@
                                                         <input type="text" name="rut" value="" disabled>
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-8"></div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-8">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Nombre empresa:</span>
+                                                            <span class="input-group-text" id="basic-addon1">Nombre Empresa:</span>
                                                         </div>
                                                         <input type="text" name="name" value="">
                                                     </div>
                                                 </div>
-                                                
-                                                
+                                                <!--Fin linea 1 suma(4+8=12)-->
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
@@ -60,28 +58,28 @@
                                                         <input type="text" name="email" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-8">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Telefono :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Telefono : +56</span>
                                                         </div>
                                                         <input type="text" name="telefono" value="">
                                                     </div>
                                                 </div>
-                                                
-                                                <div class="col-xl-6"></div>
+                                                <!--Fin linea 2 suma (4+8=12)-->
                                                 <div class="col-xl-12">
                                                     <h5>Dirección</h5>
                                                 </div>
+                                                <!--Fin linea 3  suma (12=12)-->
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                                         </div>
-                                                        
+                                                        <input type="text" name="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-8">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
@@ -89,8 +87,8 @@
                                                         <input type="text" name="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4"></div>
-                                                <div class="col-xl-6">
+                                                <!--Fin linea 4 suma(4+8=12)-->
+                                                <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Calle :</span>
@@ -98,30 +96,26 @@
                                                         <input type="text" name="calle" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-3">
+                                                <div class="col-xl-8">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">N° calle # :</span>
                                                         </div>
                                                         <input type="text" name="ncalle" value="">
                                                     </div>
-                                                
-                                                
-
+                                                </div>
+                                                <!--Fin linea 5 suma(4+8=12)-->
+                                            </div>     
+                                            <div class="col-xl-12 mb-3">
+                                                <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
                                             </div>
-                                        </form>    
-                                    </div>                 
-                            </div>
+                                            <!--Fin linea 6 suma(12=12)-->
+                                        </form>                    
+                                    </div>
+                                <!--****************************|FORMULARIO INFORMACION EMPRESA|******************************************-->
+                                             
+                                             <!--Medio de pagina / division de formularios-->
 
-
-
-
-
-
-
-
-
-                                    <div class="col-xl-1 text-center"></div>
                                 <!--****************************|FORMULARIO DATOS EMPRESA|******************************************-->
                                     <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
                                         <h3>Datos de la empresa </h3>
@@ -129,6 +123,7 @@
                                             <input type="hidden" name="c" value="Postulante_controller" />
                                             <input type="hidden" name="a" value="update" />
                                             <div class="row">
+
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
@@ -138,6 +133,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-8"></div>
+
+
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
@@ -146,9 +143,7 @@
                                                         <input type="text" name="name" value="">
                                                     </div>
                                                 </div>
-                                                
-                                                
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-8">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero de empleados:</span>
@@ -156,7 +151,9 @@
                                                         <input type="text" name="Numero de empleados" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+
+
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero asensores :</span>
@@ -164,8 +161,7 @@
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-7">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero rampas :</span>
@@ -174,7 +170,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-xl-4">
+
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero de baños aptos:</span>
@@ -182,8 +179,7 @@
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-7">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero de estacionamientos aptos:</span>
@@ -191,8 +187,8 @@
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-
-                                                <div class="col-xl-4">
+                                                
+                                                <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Numero de puertas amplias:</span>
@@ -200,24 +196,24 @@
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
+                                                <div class="col-xl-6"></div>
+
                                                 <div class="col-xl-12 mb-3">
                                                     <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
                                                 </div>
-                                                
-                                                
 
                                             </div>
                                         </form>    
                                     </div>
-
+                                <!--****************************|FORMULARIO DATOS EMPRESA|******************************************-->    
+                            </div>
                         </div>
-                        
-                    </div>    
+                    </div>        
                 <!--*****************|CONTENIDO|**************************************-->  
         </div>
     </div>
     <?php require("../VIEW/esential/footer.php");?>
-<!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
+<!-- *******************************************|1 pagina |*********************************************************************************************************-->    
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
         <script src="../CSS/bootstrap-js/popper.min.js"></script>
         <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>

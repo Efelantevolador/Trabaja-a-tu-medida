@@ -6,9 +6,9 @@
         </label>
     <nav class="menu-lateral1">
         <ul>
-            <a class="arf" href="../VIEW/perfil.usuario.empresa.php"><li>Perfil usuairo</li></a>
+            <a class="arf" href="../VIEW/perfil.usuario.empresa.php"><li>Perfil usuario</li></a>
             <a class="arf" href="../VIEW/perfil.empresa.php"><li>Perfil empresa</li></a>
-            <a class="arf" href="../VIEW/job.php"><li>generar postulacion de trabajo</li></a>
+            <a class="arf" href=""><li>generar postulacion de trabajo</li></a>
             <a class="arf" href=""><li>Mis Postulaciones generadas</li></a>
         </ul>
     </nav>
