@@ -73,7 +73,7 @@
                                             </div>
                                             
                                             <div class="col-xl-1" style="">
-                                                <!--ESTRELLA DE RECOMENDADA -->
+                                                <!--ESTRELLA DE RECOMENDADA  SOLO QUITAR LO QUE ESTA DENTRO PARA QUITAR LA ESTRELLA-->
                                                 <img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">
                                                 <!--ESTRELLA DE RECOMENDADA -->
                                             </div>
