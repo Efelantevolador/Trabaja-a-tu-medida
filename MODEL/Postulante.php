@@ -1,6 +1,7 @@
 <?php
   require_once("conexion.php");
   require_once("Vivienda.php");
+  require_once("Estudio.php");
     class Postulante
     {
       private $rut;
@@ -13,6 +14,7 @@
       private $telefono;
       private $vivienda;
       private $lista_discapacidad;
+      private $lista_estudio;
     
       public function __construct() {
         
@@ -101,6 +103,14 @@
         return $this->lista_discapacidad;
       }
 
+      public function setLista_estudio($lista){
+        $this->lista_estudio=$lista;
+      }
+
+      public function getLista_estudio(){
+        return $this->lista_estudio;
+      }
+
       public function login_postulante(){
         $conn=new Conexion();
         $conexion=$conn->conectar();
@@ -119,10 +129,32 @@
             $p->setFecha_nacimiento($row["fecha_nacimiento"]);
             $p->setTelefono($row["telefono"]);
             $viv->setId($row["vivienda"]);
-            $p->setVIvienda($viv->getbyId());
+            $p->setVivienda($viv->getbyId());
         }
         return $p;
         $conexion->close();
+      }
+
+      public function list_estudio(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql2= "SELECT * FROM lista_estudio WHERE id_postulante='".$this->rut."'";
+        $result2=$conexion->query($sql2);
+        $lista=[];
+        if($result2->num_rows>0){
+          while($row2 = $result2->fetch_assoc()) {
+            $est=new Estudio();
+            $est->setId_list($row2["id_list_est"]);
+            $est->setNivel($row2["nivel_est"]);
+            $est->setTitulo($row2["titulo_carrera"]);
+            $est->setEstado($row2["estado"]);
+            $est->setFecha_inicio($row2["fecha_ini"]);
+            $est->setFecha_fin($row2["fecha_fin"]);
+            $est->setInstitucion($row2["institucion"]);
+            $lista[]=$est;
+          }
+        }
+        return $lista;
       }
 
       public function getbyId($rut){

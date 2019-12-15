@@ -3,12 +3,13 @@
   class Empresa
     {
         private $rut_empresa;
+        private $nom_empresa;
+        private $correo_empresa;
+        private $telefono;
+        private $razon_social;
+        private $sitio_web;
         private $num_trabajadores;
-        private $num_pisos;
-        private $num_ascensores;
-        private $num_rampas;
-        private $num_banosdis;
-        private $num_puertasanchas;
+        private $pass;
         private $direccion;
 
         public function __construct()
@@ -34,112 +35,60 @@
                 $this->rut_empresa = $rut_empresa;
         }
 
-        /**
-         * Get the value of num_trabajadores
-         */ 
-        public function getNum_trabajadores()
-        {
-                return $this->num_trabajadores;
+        public function getCorreo(){
+            return $this->correo_empresa;
         }
 
-        /**
-         * Set the value of num_trabajadores
-         *
-         * @return  self
-         */ 
-        public function setNum_trabajadores($num_trabajadores)
-        {
-                $this->num_trabajadores = $num_trabajadores;
+        public function getPass(){
+            return $this->pass;
         }
 
-        /**
-         * Get the value of num_pisos
-         */ 
-        public function getNum_pisos()
-        {
-                return $this->num_pisos;
+        public function getNom_empresa(){
+            return $this->nom_empresa;
         }
 
-        /**
-         * Set the value of num_pisos
-         *
-         * @return  self
-         */ 
-        public function setNum_pisos($num_pisos)
-        {
-                $this->num_pisos = $num_pisos;
+        public function getNum_trab(){
+            return $this->num_trabajadores;
         }
 
-        /**
-         * Get the value of num_ascensores
-         */ 
-        public function getNum_ascensores()
-        {
-                return $this->num_ascensores;
+        public function getRazon_social(){
+            return $this->razon_social;
         }
 
-        /**
-         * Set the value of num_ascensores
-         *
-         * @return  self
-         */ 
-        public function setNum_ascensores($num_ascensores)
-        {
-                $this->num_ascensores = $num_ascensores;
+        public function getTelefono(){
+            return $this->telefono;
         }
 
-        /**
-         * Get the value of num_rampas
-         */ 
-        public function getNum_rampas()
-        {
-                return $this->num_rampas;
+        public function getSitio_web(){
+            return $this->sitio_web;
         }
 
-        /**
-         * Set the value of num_rampas
-         *
-         * @return  self
-         */ 
-        public function setNum_rampas($num_rampas)
-        {
-                $this->num_rampas = $num_rampas;
+        public function setSitio_web($web){
+            $this->sitio_web=$web;
         }
 
-        /**
-         * Get the value of num_banosdis
-         */ 
-        public function getNum_banosdis()
-        {
-                return $this->num_banosdis;
+        public function setRazon_social($razon){
+            $this->razon_social=$razon;
         }
 
-        /**
-         * Set the value of num_banosdis
-         *
-         * @return  self
-         */ 
-        public function setNum_banosdis($num_banosdis)
-        {
-                $this->num_banosdis = $num_banosdis;
+        public function setCorreo($correo){
+            $this->correo_empresa = $correo;
         }
 
-        /**
-         * Get the value of num_puertasanchas
-         */ 
-        public function getNum_puertasanchas()
-        {
-                return $this->num_puertasanchas;
+        public function setTelefono($tel){
+            $this->telefono=$tel;
         }
 
-        /**
-         * Set the value of num_puertasanchas
-         *
-         * @return  self
-         */ 
-        public function setNum_puertasanchas($num_puertasanchas)
-        {
-                $this->num_puertasanchas = $num_puertasanchas;
+        public function setNom_empresa($nom){
+            $this->nom_empresa=$nom;
+        }
+
+        public function setPass($pass){
+            $this->pass=$pass;
+        }
+
+        public function setNum_trab($num){
+            $this->num_trabajadores=$num;
         }
 
         /**
@@ -168,13 +117,42 @@
             $result = $conexion->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $emp->setNum_trabajadores($row["num_trabajadores"]);
-                $emp->setNum_pisos($row["num_pisos"]);
-                $emp->setNum_ascensores($row["num_ascensores"]);
-                $emp->setNum_rampas($row["num_rampas"]);
-                $emp->setNum_banosdis($row["num_banosdis"]);
-                $emp->setNum_puertasanchas($row["num_puertasanchas"]);
                 $emp->setDireccion($row["direccion"]);
+            }
+            return $emp;
+        }
+
+        public function update(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="UPDATE empresa set num_trabajadores='".$this->num_trabajadores."', nom_empresa='".$this->nom_empresa."',telefono='".$this->telefono."', sitio_web='".$this->sitio_web."' WHERE rut_empresa='".$this->rut_empresa."'";
+            if ($conexion->query($sql) === TRUE) {
+                return true;
+            } 
+            else{
+                return false;
+            }
+        }
+
+        public function login(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM empresa WHERE correo_empresa='".$this->correo_empresa."' AND pass='".$this->pass."'";
+            $result = $conexion->query($sql);
+            $emp=new Empresa();
+            $viv=new Vivienda();
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $emp->setRut_empresa($row["rut_empresa"]);
+                $emp->setNum_trab($row["num_trabajadores"]);
+                $emp->setCorreo($row["correo_empresa"]);
+                $emp->setPass($row["pass"]);
+                $emp->setNom_empresa($row["nom_empresa"]);
+                $emp->setTelefono($row["telefono"]);
+                $emp->setRazon_social($row["razon_social"]);
+                $emp->setSitio_web($row["sitio_web"]);
+                $viv->setId($row["direccion"]);
+                $emp->setDireccion($viv->getbyId());
             }
             return $emp;
         }

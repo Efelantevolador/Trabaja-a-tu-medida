@@ -2,6 +2,7 @@
     class Controlador_Base{
         private $controller;
         private $accion;
+        private $cod;
 
         /**
          * Genera un Controlador_Base
@@ -9,9 +10,10 @@
          * @param string $c Controlador que se usará
          * @param string $a Accion que se ejecutará
          */
-        public function __construct($c,$a) {
+        public function __construct($c,$a,$cod) {
             $this->controller=$c;
             $this->accion=$a;
+            $this->cod=$cod;
             foreach(glob("*.php") as $file){
                 require_once $file;
             }
@@ -47,10 +49,21 @@
         public function Ejecutar(){
             $controller=$this->controller;
             $accion=$this->accion;
+            $cod=$this->cod;
             $c=new $controller;
-            return $c->$accion();
+            if($cod!=null){
+                return $c->$accion($cod);
+            }
+            else{
+                return $c->$accion();
+            }
         }
     }
-    $prueba=new Controlador_Base($_POST["c"],$_POST["a"]);
+    if(isset($_GET["cod"])&&isset($_GET["c"])){
+        $prueba=new Controlador_Base($_GET["c"],$_GET["a"],$_GET["cod"]);
+    }
+    else{
+        $prueba=new Controlador_Base($_POST["c"],$_POST["a"],"");
+    }
     echo $prueba->Ejecutar();
 ?>

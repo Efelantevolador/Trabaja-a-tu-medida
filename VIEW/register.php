@@ -124,7 +124,11 @@ header('Content-Type: text/html; charset=UTF-8');
                                             </div>
                                             <select class="custom-select" id="inputGroupSelect02">
                                                 <option value="" selected disabled>- Año -</option>
+<<<<<<< HEAD
+                                                <?php  for($i=1950;$i<=2001;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+=======
                                                 <?php  for($i=1950;$i<=2020;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+>>>>>>> 234719c27248bbf5684084564d092ff3843c2d35
                                             </select>
                                         </div>
                                     </div>
@@ -155,7 +159,11 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                             </div>
+<<<<<<< HEAD
+                                            
+=======
                                             <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+>>>>>>> 234719c27248bbf5684084564d092ff3843c2d35
                                         </div>
                                     </div>
                                     <div class="col-xl-2"></div>
