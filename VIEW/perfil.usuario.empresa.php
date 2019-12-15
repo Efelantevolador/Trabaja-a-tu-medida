@@ -33,17 +33,17 @@
                         <div class="row align-content-center">
                             <div class="col-xl-1 text-center"></div>
                             <div class="col-xl-10 text-center">
-                                <h1>Perfil Usuario</h1>
+                                <h1>Perfil reprecentante de Empresa</h1>
                             </div>
                             <div class="col-xl-1 text-center"></div>
                             <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
                                 <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
-                                        <h3>Informacion personal </h3>
-                                        <form method="post" action="../CONTROLER/ControladorBase.php">
+                                        <h3>Informacion de Gerente, Administrador de cuenta o reprecentante de Empresa. </h3>
+                                        <form method="post" action="../CONTROLER/ControladorBase.php" style="margin-top:30px;">
                                             <input type="hidden" name="c" value="Postulante_controller" />
                                             <input type="hidden" name="a" value="update" />
                                             <div class="row">
-
+                                                <div class="col-xl-1"></div>
                                                 <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
@@ -52,10 +52,10 @@
                                                         <input type="text" name="rut" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-8"></div>
+                                                <div class="col-xl-7"></div>
 
-
-                                                <div class="col-xl-5">
+                                                <div class="col-xl-1"></div>
+                                                <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
@@ -72,11 +72,11 @@
                                                     </div>
                                                 </div>
 
-
-                                                <div class="col-xl-5">
+                                                <div class="col-xl-1"></div>
+                                                <div class="col-xl-4">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">@Email:</span>
+                                                            <span class="input-group-text B-color" id="basic-addon1">@Email:</span>
                                                         </div>
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
@@ -90,7 +90,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-12 mb-3">
+                                            <div class="col-xl-12 mb-3" style="margin-top:30px;">
                                                 <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
                                             </div>
                                         </form>    
@@ -105,19 +105,64 @@
                                     <form method="post" action="../CONTROLER/ControladorBase.php">
                                         <input type="hidden" name="c" value="Postulante_controller" />
                                         <input type="hidden" name="a" value="update" />
-                                        <div class="row">
-
-                                            <div class="col-xl-4">
+                                        <div class="row" style="margin-top:20px;">
+                                            <div class="col-xl-1"></div>
+                                            <div class="col-xl-6">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Nombre:</span>
                                                     </div>
-                                                    <input type="text" name="rut" value="">
+                                                    <input type="text" name="Nombre" value="">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-8"></div>
+                                            <div class="col-xl-5">
+                                            </div>
+                                            <div class="col-xl-1"></div>
+                                            <div class="col-xl-4">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
+                                                    </div>
+                                                    <input type="text" name="Nombre" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-7">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
+                                                    </div>
+                                                    <input type="text" name="Nombre" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-1"></div>
+                                            <div class="col-xl-4">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Telefono:</span>
+                                                    </div>
+                                                    <input type="text" name="Nombre" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-7">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Email:</span>
+                                                    </div>
+                                                    <input type="text" name="Nombre" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-1"></div>
+                                            <div class="col-xl-7">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Password:</span>
+                                                    </div>
+                                                    <input type="text" name="Nombre" value="">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4"></div>
 
-                                            <div class="col-xl-12 mb-3">
+                                            <div class="col-xl-12 mb-3" style="margin-top:20px;">
                                                 <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
                                             </div>
 
