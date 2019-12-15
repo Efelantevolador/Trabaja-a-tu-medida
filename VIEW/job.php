@@ -18,146 +18,92 @@
                 <div class="col-xl-2">
                     <?php require("../VIEW/esential/menu-lateral.php");?>
                 </div>
-                <div class="col-xl-3" style="border:1px solid blue;">
-                    <h1>Filtro especifico</h1>
-                    <div class="row">
-                        <div class="col-xl-12" style="border:1px solid blue;">
-                            <h1>hola</h1>
-                        </div>
-                        <div class="col-xl-4" style="border:1px solid blue;"><h1>hola</h1></div>
-                        <div class="col-xl-4" style="border:1px solid blue;"><h1>hola</h1></div>
-                    </div>
-                </div>
+                
                 <!--*****************|2 CONTENIDO INTERNO DE PAG|*****************************************************************-->
-                    <div class="col-xl-7" style="border:1px solid black;">
-                        <h1>Propuestas laborales</h1>
+                    <div class="col-xl-9" style="border-left:1px dotted black;border-right:1px dotted black;">
+                        <h2>Propuestas laborales</h2>
                         <div class="container">
-                        <div class="row" style="margin-top:30px;margin-bottom:30px;border:1px black solid;">
-                                <div class="col-xl-10" style="border:1px solid black;">
-                                    <h2 class="h2 project-title">
-                                        <a href="#oferta" target="_blank" rel="noopener">
-                                            <span title="NOMBRE">NOMBRE</span>
-                                        </a>
-                                    </h2>
+                            <!-- DOGE AQUI ESTA EL FILTRO DE SALARIO Y HORARIO-->
+                                <form method="post" action="#">
+                                    <div class="row">                              
+                                        <div class="col-xl-4">
+                                            <div class="input-group">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="comboboxP">Salario Estimado :</label>
+                                                </div>
+                                                <select class="custom-select">
+                                                    <option selected disabled id="combotortuga" value="0">-Seleccionar-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="input-group">
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="comboboxP">Horario Deceado :</label>
+                                                </div>
+                                                <select class="custom-select">
+                                                    <option selected disabled id="combotortuga" value="0">-Seleccionar-</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-2">
+                                            <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Filtrar">
+                                        </div>
+                                    </div> 
+                                </form>
+                            <!-- DOGE AQUI ESTA EL FILTRO DE SALARIO Y HORARIO-->
+                            <div class="row">
+                                <div class="col-xl-4"> 
+                                    <p>Las Ofertas laborales recomendadas para ti tendran una Estrella como esta:</p> 
                                 </div>
-                                <div class="col-xl-2">   
-                                    <div class="btn-group">
-                                        <a href="#oferta" class="btn btn-primary" data-id="">Postular</a>
-                                    </div>
+                                <div class="col-xl-4"> 
+                                    <img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">
                                 </div>
-                                <div class="col-xl-12">
-                                    <span title="18 Septiembre, 2019 15:33" class="date">
-                                        <strong>Publicado: </strong>
-                                        Hace 2 días        
-                                    </span> 
-                                    <span class="deadline">
-                                        <strong>Plazo:</strong> 
-                                        <span class="value">10 días</span>
-                                    </span> 
-                                    <span class="bids">
-                                        <strong>Propuestas: </strong>
-                                        4        
-                                    </span>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="html-desc project-details">
-                                        <div>
-                                            Lorem ipsum dolor sit amet 
-                                            consectetur adipisicing elit. 
-                                            Consequatur, perferendis ipsum 
-                                            delectus earum rerum error 
-                                            laboriosam veritatis laborum 
-                                            alias sapiente, porro labore tenetur 
-                                            cupiditate expedita et libero 
-                                            aspernatur dolor! In. 
+                            </div>
+                            <!-- DOGE AQUI ESTA LA OFERTA DE TRABAJO  -->
+                                <div class="row">
+                                    <div class="col-xl-12" style="border:dotted 1px black;;padding:5px;">
+                                        <div class="row">
+                                            <div class="col-xl-11" style="">
+                                                <h3>
+                                                    <a href="#oferta" target="_blank" rel="noopener">
+                                                        <span title="NOMBRE">Nombre de Oferta</span>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            
+                                            <div class="col-xl-1" style="">
+                                                <!--ESTRELLA DE RECOMENDADA -->
+                                                <img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">
+                                                <!--ESTRELLA DE RECOMENDADA -->
+                                            </div>
+                                            
+                                            <div class="col-xl-12">
+                                                <div class="row">
+                                                    <div class="col-xl-4"><strong>Publicado:</strong> hace 2 dias</div>
+                                                    <div class="col-xl-4"><strong>Plazo:</strong> 2 dias mas de postulacion</div>
+                                                    <div class="col-xl-4"><strong>Propuestas:</strong> 5 propuestas enviadas.</div>
+                                                    <div class="col-xl-12"><br></div>
+                                                    <div class="col-xl-4"> <strong>Empleo:</strong>  Operador Call-center.</div>
+                                                    <div class="col-xl-4"><strong>Localidad:</strong> Lorem ipsum dolor sit amet.</div>
+                                                    <div class="col-xl-4"><strong>Salario:</strong> $900.000</div>
+                                                    <div class="col-xl-12" style="margin-top:7px;"><strong>Detalle:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                    Voluptas quo eum neque necessitatibus animi, totam recusandae nemo nulla vitae architecto blanditiis facilis error
+                                                    laudantium quidem dolor veritatis vel reiciendis iusto numquam eaque alias eligendi. Doloremque perspiciatis veniam atque. 
+                                                    Harum ipsum quas labore vitae minima delectus! Asperiores at maxime corrupti fugiat.</div>
+
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>         
-                            </div>
-                            <div class="row" style="margin-top:30px;margin-bottom:30px;border:1px black solid;">
-                                <div class="col-xl-10" style="border:1px solid black;">
-                                    <h2 class="h2 project-title">
-                                        <a href="#oferta" target="_blank" rel="noopener">
-                                            <span title="NOMBRE">NOMBRE</span>
-                                        </a>
-                                    </h2>
                                 </div>
-                                <div class="col-xl-2">   
-                                    <div class="btn-group">
-                                        <a href="#oferta" class="btn btn-primary" data-id="">Postular</a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <span title="18 Septiembre, 2019 15:33" class="date">
-                                        <strong>Publicado: </strong>
-                                        Hace 2 días        
-                                    </span> 
-                                    <span class="deadline">
-                                        <strong>Plazo:</strong> 
-                                        <span class="value">10 días</span>
-                                    </span> 
-                                    <span class="bids">
-                                        <strong>Propuestas: </strong>
-                                        4        
-                                    </span>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="html-desc project-details">
-                                        <div>
-                                            Lorem ipsum dolor sit amet 
-                                            consectetur adipisicing elit. 
-                                            Consequatur, perferendis ipsum 
-                                            delectus earum rerum error 
-                                            laboriosam veritatis laborum 
-                                            alias sapiente, porro labore tenetur 
-                                            cupiditate expedita et libero 
-                                            aspernatur dolor! In. 
-                                        </div>
-                                    </div>
-                                </div>         
-                            </div>
-                            <div class="row" style="margin-top:30px;margin-bottom:30px;border:1px black solid;">
-                                <div class="col-xl-10" style="border:1px solid black;">
-                                    <h2 class="h2 project-title">
-                                        <a href="#oferta" target="_blank" rel="noopener">
-                                            <span title="NOMBRE">NOMBRE</span>
-                                        </a>
-                                    </h2>
-                                </div>
-                                <div class="col-xl-2">   
-                                    <div class="btn-group">
-                                        <a href="#oferta" class="btn btn-primary" data-id="">Postular</a>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <span title="18 Septiembre, 2019 15:33" class="date">
-                                        <strong>Publicado: </strong>
-                                        Hace 2 días        
-                                    </span> 
-                                    <span class="deadline">
-                                        <strong>Plazo:</strong> 
-                                        <span class="value">10 días</span>
-                                    </span> 
-                                    <span class="bids">
-                                        <strong>Propuestas: </strong>
-                                        4        
-                                    </span>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div class="html-desc project-details">
-                                        <div>
-                                            Lorem ipsum dolor sit amet 
-                                            consectetur adipisicing elit. 
-                                            Consequatur, perferendis ipsum 
-                                            delectus earum rerum error 
-                                            laboriosam veritatis laborum 
-                                            alias sapiente, porro labore tenetur 
-                                            cupiditate expedita et libero 
-                                            aspernatur dolor! In. 
-                                        </div>
-                                    </div>
-                                </div>         
-                            </div>
+                            <!-- DOGE AQUI ESTA LA OFERTA DE TRABAJO  -->
+
+
+
+
+
+
                         </div>
                     </div>    
                 <!--*****************|2 FIN CONTENIDO INTERNO DE PAG|*************************************************************-->
