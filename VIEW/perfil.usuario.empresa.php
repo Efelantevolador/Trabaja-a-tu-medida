@@ -27,79 +27,138 @@
             <div class="col-xl-2">
                 <?php require("../VIEW/esential/menu-lateral-empresa.php");?>
             </div>
-                <!--*****************|CONTENIDO|**************************************-->
-                    <div class="col-xl-10">
-                        <div class="container" style="margin-top:30px;">
-                            <div class="row align-content-center">
-                                <div class="col-xl-1 text-center"></div>
-                                <div class="col-xl-10 text-center">
-                                    <h1>Perfil empresa </h1>
-                                </div>
-                                <div class="col-xl-1 text-center"></div>
-                                <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
-                                    <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
-                                        <h3>Información personal</h3>
+            <!--****************************|Contenido|******************************************-->
+                <div class="col-xl-10">
+                    <div class="container" style="margin-top:30px;">
+                        <div class="row align-content-center">
+                            <div class="col-xl-1 text-center"></div>
+                            <div class="col-xl-10 text-center">
+                                <h1>Perfil Usuario</h1>
+                            </div>
+                            <div class="col-xl-1 text-center"></div>
+                            <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
+                                <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
+                                        <h3>Informacion personal </h3>
                                         <form method="post" action="../CONTROLER/ControladorBase.php">
                                             <input type="hidden" name="c" value="Postulante_controller" />
                                             <input type="hidden" name="a" value="update" />
                                             <div class="row">
-                                                
+
+                                                <div class="col-xl-4">
+                                                    <div class="input-group mb-2">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">Nombre:</span>
+                                                        </div>
+                                                        <input type="text" name="rut" value="">
+                                                    </div>
                                                 </div>
                                                 <div class="col-xl-8"></div>
-                                                <div class="col-xl-4">
+
+
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Nombre :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
                                                         </div>
-                                                        <input type="text" name="name" value="<?php echo $p->getNombre();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="name" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-7">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Apellido Paterno :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
                                                         </div>
-                                                        <input type="text" name="apellidoP" value="<?php echo $p->getApellido_Paterno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="Numero de empleados" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+
+
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Apellido Materno :</span>
+                                                            <span class="input-group-text" id="basic-addon1">@Email:</span>
                                                         </div>
-                                                        <input type="text" name="apellidoM" value="<?php echo $p->getApellido_Materno();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-7">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">@email :</span>
+                                                            <span class="input-group-text" id="basic-addon1">Telefono</span>
                                                         </div>
-                                                        <input type="text" name="email" value="<?php echo $p->getCorreo();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-4">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Telefono :</span>
-                                                        </div>
-                                                        <input type="text" name="telefono" value="<?php echo $p->getTelefono();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            </div>
+                                            <div class="col-xl-12 mb-3">
+                                                <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
+                                            </div>
+                                        </form>    
+                                    </div>
+                            <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
+
+                                                        <!--Seccion Intermedia de pagina // Mitad de pagina // separacion -->
+
+                            <!--****************************|Agregar Personal|******************************************-->         
+                                <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
+                                    <h3>Agregar Personal </h3>
+                                    <form method="post" action="../CONTROLER/ControladorBase.php">
+                                        <input type="hidden" name="c" value="Postulante_controller" />
+                                        <input type="hidden" name="a" value="update" />
+                                        <div class="row">
+
+                                            <div class="col-xl-4">
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">Nombre:</span>
                                                     </div>
+                                                    <input type="text" name="rut" value="">
                                                 </div>
-                                            
-                                                
-                                                      
-                                                    </div>
-                                                </div>
-                                               
-                                             </div> 
-                         
+                                            </div>
+                                            <div class="col-xl-8"></div>
+
+                                            <div class="col-xl-12 mb-3">
+                                                <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
+                                            </div>
+
                                         </div>
-                                     </div>
-                                </div>    
-                
-                            </div>
-                        </div>
+                                    </form>
+                                        <table class="table table-bordered table-hover">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Apellido</th>
+                                                    <th scope="col">@Email</th>
+                                                    <th scope="col">Contraseña  <img src="../CSS/open-iconic-master/png/lock-locked-3x.png" alt="Eliminar"></th>
+                                                    <th scope="col">Telefono +56</th>
+                                                    <th scope="col">Modificar</th>
+                                                    <th scope="col">Eliminar</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Juanito </td>
+                                                    <td>Perez Muñoz</td>
+                                                    <td>JPerezMuñoz69@gmail.com</td>
+                                                    <td>***********</td>
+                                                    <td><span style="color:red;">+56</span> 930090086</td>
+                                                    <td class="text-center">
+                                                        <a href="#"><img src="../CSS/open-iconic-master/png/book-3x.png" alt="Eliminar"></a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a href="#"><img src="../CSS/open-iconic-master/png/circle-x-3x.png" alt="Eliminar"></a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>    
+                                </div>
+                            <!--****************************|Agregar Personal|******************************************-->                
+                        </div> 
+                    </div>
+                </div>
+            <!--****************************|Contenido|******************************************-->
+        </div>     
+    </div>
     <?php require("../VIEW/esential/footer.php");?>
 <!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>

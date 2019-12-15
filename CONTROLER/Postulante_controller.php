@@ -80,7 +80,6 @@
                     $p->setFecha_nacimiento($_POST["year"]."-".$_POST["month"]."-".$_POST["day"]);
                     $v=new Vivienda();
                     $v->setCalle($_POST["calle"]);
-                    $v->setCiudad($_POST["ciudad"]);
                     $v->setComuna($_POST["comuna"]);
                     $v->setNum_calle($_POST["ncalle"]);
                     $v->setRegion($_POST["region"]);
@@ -138,4 +137,5 @@
             }
         }
     }
+
 ?>

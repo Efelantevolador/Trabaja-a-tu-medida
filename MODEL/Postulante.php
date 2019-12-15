@@ -129,7 +129,7 @@
             $p->setFecha_nacimiento($row["fecha_nacimiento"]);
             $p->setTelefono($row["telefono"]);
             $viv->setId($row["vivienda"]);
-            $p->setVIvienda($viv->getbyId());
+            $p->setVivienda($viv->getbyId());
         }
         return $p;
         $conexion->close();
