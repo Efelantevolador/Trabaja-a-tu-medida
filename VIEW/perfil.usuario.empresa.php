@@ -10,15 +10,7 @@
     </head>
     <body>
     <?php
-        require_once("../MODEL/Postulante.php");
-        require_once("../MODEL/Vivienda.php");
         session_start();
-        $p=new Postulante();
-        if(isset($_SESSION["Postulante"])){
-            $p=$_SESSION["Postulante"];
-            $viv=new Vivienda();
-            $viv=$p->getVivienda();
-        }
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <?php require("../VIEW/esential/navbar.php")?>

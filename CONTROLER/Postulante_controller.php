@@ -131,6 +131,7 @@
             $est->setRut($pos->getRut());
             if($est->getFecha_fin()!=null&&$est->getFecha_fin()>=$est->getFecha_inicio()){
                 $est->create_estudio();
+                echo "<script>perfil()</script>";
             }
             else{
                 echo "<script>error_fecha()</script>";
