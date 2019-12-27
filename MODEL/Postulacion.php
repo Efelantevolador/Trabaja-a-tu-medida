@@ -5,16 +5,13 @@
         private $id;
         private $direccion;
         private $n_ascensores;
-        private $n_empleados;
-        private $n_rampas;
         private $n_banos;
-        private $n_puertasap;
-        private $n_puertasamp;
         private $salario;
         private $tipo_horario;
         private $area;
         private $profesion;
         private $espacio_trabajo;
+        private $descrip;
         private $empresa;
         private $pre1;
         private $pre2;
@@ -25,6 +22,10 @@
 
         public function __construct(){
             
+        }
+
+        public function setDescrip($des){
+            $this->descrip=$des;
         }
 
         public function setEmpresa($emp){
@@ -75,14 +76,6 @@
             $this->salario = $sal;
         }
 
-        public function setN_puestasamp($n){
-            $this->n_puertasamp = $n;
-        }
-
-        public function setN_puertasap($n){
-            $this->n_puertasap = $n;
-        }
-
         public function setN_banos($n){
             $this->n_banos = $n;
         }
@@ -105,6 +98,10 @@
 
         public function setId($id){
             $this->id = $id;
+        }
+
+        public function getDescrip(){
+            return $this->descrip;
         }
 
         public function getEmpresa(){
@@ -153,14 +150,6 @@
 
         public function getSalario(){
             return $this->salario;
-        }
-
-        public function getN_puertasamp(){
-            return $this->n_puertasamp;
-        }
-
-        public function getN_puertasap(){
-            return $this->n_puertasap;
         }
 
         public function getN_banos(){

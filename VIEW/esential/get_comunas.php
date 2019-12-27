@@ -1,17 +1,15 @@
 <?php
 require_once("../../MODEL/Comuna.php");
+function getComuna(){
 $com=new Comuna();
-$id_region = filter_input(INPUT_POST, 'region_id');
-
-if($id_region != ''){
-    $com->setRegion($id_region);
-    $datos=$com->listarComuna();
+    $id_region = $_POST["reg_id"];
+    if($id_region != ''){
+        $com->setRegion($id_region);
+        $datos=$com->listarComuna();
+        foreach($datos as $c):
+            $lista .="<option value='".$c->getCod_comuna()."'>".$c->getNom_comuna()."</option>";
+        endforeach;
+        return $lista;
+    }
 }
-$com->setRegion(13);
-$datos=$com->listarComuna();
-  ?>
-  <option value="">- Seleccione -</option>
-  <?php foreach($datos as $op):?>
-  <option value="<?= $op->getCod_comuna() ?>"><?= $op->getNom_comuna() ?></option>
-  <?php endforeach; ?>
-?>
+echo getComuna();

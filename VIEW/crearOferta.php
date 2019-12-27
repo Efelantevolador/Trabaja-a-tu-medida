@@ -10,36 +10,7 @@
         
     </head>
     <body>
-    <script type="text/javascript">
-        $(document).ready(function(){
-        var comuna = $('#comuna');
-
-        //Ejecutar accion al cambiar de opcion en el select de las region
-        $('#region').change(function(){
-          var region_id = $(this).val(); //obtener el id seleccionado
-
-          if(region_id !== ''){ //verificar haber seleccionado una opcion valida
-
-            /*Inicio de llamada ajax*/
-            $.ajax({
-              data: {region_id:region_id}, //variables o parametros a enviar, formato => nombre_de_variable:contenido
-              dataType: 'html', //tipo de datos que esperamos de regreso
-              type: 'POST', //mandar variables como post o get
-              url: 'esential/get_comunas.php' //url que recibe las variables
-            }).done(function(data){ //metodo que se ejecuta cuando ajax ha completado su ejecucion             
-
-              comuna.html(data); //establecemos el contenido html de comuna con la informacion que regresa ajax             
-              comuna.prop('disabled', false); //habilitar el select
-            });
-            /*fin de llamada ajax*/
-
-          }else{ //en caso de seleccionar una opcion no valida
-            comuna.val(''); //seleccionar la opcion "- Seleccione -", osea como reiniciar la opcion del select
-            comuna.prop('disabled', true); //deshabilitar el select
-          }    
-        });
-      });
-    </script>
+    
     <?php
         require_once("../MODEL/Empresa.php");
         require_once("../CONTROLER/Region_controller.php");
@@ -78,7 +49,7 @@
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="id">Region :</label>
                                                 </div>
-                                                <select name="region" class="custom-select" id="region">
+                                                <select name="region" class="custom-select" id="cbxregion">
                                                     <option selected disabled value="">- Región -</option>
                                                     <?php
                                                         $r=new Region_controller;
@@ -134,49 +105,9 @@
                                         <div class="col-xl-6">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
-                                                    <label class="input-group-text" for="id">N° Empleados :</label>
-                                                </div>
-                                                <select name="empleados" class="custom-select" id="id">
-                                                    <?php  for($i=1;$i<=31;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-append">
-                                                    <label class="input-group-text" for="id">N° Rampas :</label>
-                                                </div>
-                                                <select name="rampa" class="custom-select" id="id">
-                                                    <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-append">
                                                     <label class="input-group-text" for="id">N° Baños aptos :</label>
                                                 </div>
                                                 <select name="banos" class="custom-select" id="id">
-                                                    <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-append">
-                                                    <label class="input-group-text" for="id">N° Puertas aptas :</label>
-                                                </div>
-                                                <select name="puertasap" class="custom-select" id="id">
-                                                    <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-xl-6">
-                                            <div class="input-group mb-4">
-                                                <div class="input-group-append">
-                                                    <label class="input-group-text" for="id">N° Puertas amplias :</label>
-                                                </div>
-                                                <select name="puertasamp" class="custom-select" id="id">
                                                     <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
                                                 </select>
                                             </div>
@@ -240,22 +171,42 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Actividades a realizar :</span>
                                                 </div>
-                                                <select name="actividad" class="custom-select" id="id">
-                                                    <option value="1"></option>
-                                                </select>
+                                                <textarea name="actividades" id=""></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                <h3>Preguntas necesarias para trabajo a realizar</h3>
+                                    <h3>Preguntas necesarias para trabajo a realizar</h3>
                                     <div class="row" style="background:yellow;padding:15px;margin:2px;">
                                         <div class="col-xl-8">
-                                            <p>¿Requiere de usar ambas extremidades superiores?</p>
+                                            <p>¿Requiere usar ambas extremidades superiores?</p>
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
                                                 <input type="radio" name="extremidad" id=""> 
                                                     <p style="margin-left:5px;">Si</p>
                                                 <input style="margin-left:10px;"type="radio" name="extremidad" id=""> 
+                                                    <p style="margin-left:5px;">No</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <p>¿El establecimiento cuenta con rampas en todas las escalones?</p>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="row">
+                                                <input type="radio" name="rampa" id=""> 
+                                                    <p style="margin-left:5px;">Si</p>
+                                                <input style="margin-left:10px;"type="radio" name="rampa" id=""> 
+                                                    <p style="margin-left:5px;">No</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-8">
+                                            <p>¿Las puertas del lugar de trabajo cumple con X medida de ancho?</p>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="row">
+                                                <input type="radio" name="puerta" id=""> 
+                                                    <p style="margin-left:5px;">Si</p>
+                                                <input style="margin-left:10px;"type="radio" name="puerta" id=""> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -337,6 +288,27 @@
     </div>
     <?php require("../VIEW/esential/footer.php");?>
 <!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
-        
+    <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
+    <script src="../CSS/bootstrap-js/popper.min.js"></script>
+    <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+        $('#cbxregion').on('change' ,function(){
+            var reg_id=$('#cbxregion').val()
+            $.ajax({
+                type: 'POST',
+                url: 'esential/get_comunas.php',
+                data: {'reg_id' : reg_id}
+            })
+            .done(function(lista){
+                $('#comuna').html(lista)
+            })
+            .fail(function(){
+                alert("FALLO")
+            })
+        });
+      });
+    </script>
     </body>
 </html>
