@@ -72,7 +72,7 @@
         <ul>
             <a class="arf" href="../VIEW/perfil.usuario.empresa.php"><li>Perfil</li></a>
             <a class="arf" href="../VIEW/perfil.empresa.php"><li>Informacion de empresa</li></a>
-            <a class="arf" href=""><li>generar postulacion de trabajo</li></a>
+            <a class="arf" href="../VIEW/crearOferta.php"><li>generar postulacion de trabajo</li></a>
             <a class="arf" href=""><li>Mis Postulaciones generadas</li></a>
         </ul>
     </nav>
