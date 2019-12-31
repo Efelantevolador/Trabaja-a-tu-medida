@@ -39,7 +39,7 @@
                                         <div class="col-xl-4">
                                             <div class="input-group">
                                                 <div class="input-group-append">
-                                                    <label class="input-group-text" for="comboboxP">Horario Deceado :</label>
+                                                    <label class="input-group-text" for="comboboxP">Tipo de trabajo :</label>
                                                 </div>
                                                 <select class="custom-select">
                                                     <option selected disabled id="combotortuga" value="0">-Seleccionar-</option>
@@ -66,7 +66,7 @@
                                         <div class="row">
                                             <div class="col-xl-11" style="">
                                                 <h3>
-                                                    <a href="#oferta" target="_blank" rel="noopener">
+                                                    <a href="detalle_postulacion.php" target="_blank" rel="noopener">
                                                         <span title="NOMBRE">Nombre de Oferta</span>
                                                     </a>
                                                 </h3>
@@ -82,15 +82,15 @@
                                                 <div class="row">
                                                     <div class="col-xl-4"><strong>Publicado:</strong> hace 2 dias</div>
                                                     <div class="col-xl-4"><strong>Plazo:</strong> 2 dias mas de postulacion</div>
-                                                    <div class="col-xl-4"><strong>Propuestas:</strong> 5 propuestas enviadas.</div>
+                                                    <div class="col-xl-4"><strong>Empresa:</strong> <a href="info_empresa.php" style="color:green;">Nombre empresa</a></div>
                                                     <div class="col-xl-12"><br></div>
-                                                    <div class="col-xl-4"> <strong>Empleo:</strong>  Operador Call-center.</div>
-                                                    <div class="col-xl-4"><strong>Localidad:</strong> Lorem ipsum dolor sit amet.</div>
-                                                    <div class="col-xl-4"><strong>Salario:</strong> $900.000</div>
-                                                    <div class="col-xl-12" style="margin-top:7px;"><strong>Detalle:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                                    Voluptas quo eum neque necessitatibus animi, totam recusandae nemo nulla vitae architecto blanditiis facilis error
-                                                    laudantium quidem dolor veritatis vel reiciendis iusto numquam eaque alias eligendi. Doloremque perspiciatis veniam atque. 
-                                                    Harum ipsum quas labore vitae minima delectus! Asperiores at maxime corrupti fugiat.</div>
+                                                    <div class="col-xl-4"> <strong>Empleo:</strong> Vedetto.</div>
+                                                    <div class="col-xl-4"><strong>Localidad:</strong> Alessandri 230, Viña del Mar, Valparaíso</div>
+                                                    <div class="col-xl-4"><strong>Salario:</strong> Entre $900.000 y $1.000.000</div>
+                                                    <div class="col-xl-12" style="margin-top:7px;"><strong>Detalle:</strong> Se busca Vedetto sin una pierna para
+                                                    hacer el helicoptero sin una elise, que no cobre caro y que sea carismatico simpatico y bueno pa la talla. A 
+                                                    gusto de Diego Oyanedel y rodrigo martinez Lorem ipsum dolor sit amet consectetur, adipisicing elit. At minima 
+                                                    illum quam consectetur distinctio! Perferendis aut ullam quisquam nam.</div>
 
                                                 </div>
                                             </div>

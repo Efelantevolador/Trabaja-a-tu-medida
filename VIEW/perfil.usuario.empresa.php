@@ -25,7 +25,7 @@
                         <div class="row align-content-center">
                             <div class="col-xl-1 text-center"></div>
                             <div class="col-xl-10 text-center">
-                                <h1>Perfil reprecentante de Empresa</h1>
+                                <h1>Perfil representante de Empresa</h1>
                             </div>
                             <div class="col-xl-1 text-center"></div>
                             <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
@@ -47,7 +47,7 @@
                                                 <div class="col-xl-7"></div>
 
                                                 <div class="col-xl-1"></div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
@@ -55,7 +55,7 @@
                                                         <input type="text" name="name" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-7">
+                                                <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
@@ -65,7 +65,7 @@
                                                 </div>
 
                                                 <div class="col-xl-1"></div>
-                                                <div class="col-xl-4">
+                                                <div class="col-xl-5">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text B-color" id="basic-addon1">@Email:</span>
@@ -73,7 +73,7 @@
                                                         <input type="text" name="numeroAsensores" value="">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-7">
+                                                <div class="col-xl-6">
                                                     <div class="input-group mb-2">
                                                         <div class="input-group-prepend">
                                                             <span class="input-group-text" id="basic-addon1">Telefono</span>
