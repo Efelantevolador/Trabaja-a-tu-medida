@@ -21,7 +21,6 @@
             $viv=$p->getVivienda();
             $lista=$p->list_estudio();
             $p->setLista_estudio($lista);
-        }
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     <?php require("../VIEW/esential/navbar.php")?>
@@ -172,7 +171,7 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                                         </div>
-                                                        <select name="region" class="custom-select" id="inputGroupSelect02">
+                                                        <select name="region" class="custom-select" id="region">
                                                             <option disabled>- Región -</option>
                                                             <option <?php if($viv->getRegion()==15){echo "selected";}?> value="15">Región de Arica y Parinacota</option>
                                                             <option <?php if($viv->getRegion()==1){echo "selected";}?> value="1">Región de Tarapacá</option>
@@ -198,7 +197,9 @@
                                                         <div class="input-group-append">
                                                             <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                                         </div>
-                                                        <input type="text" name="comuna" value="<?php echo $viv->getComuna();?>" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                        <select name="comuna" class="custom-select" id="comuna">
+                                                    
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-xl-4"></div>
@@ -370,10 +371,49 @@
                 <!--*****************|CONTENIDO|**************************************-->  
         </div>
     </div>
-    <?php require("../VIEW/esential/footer.php");?>
+    <?php require("../VIEW/esential/footer.php");
+    }
+    else{
+        echo'<script type="text/javascript">
+            alert("No tienes permisos para entrar aquí");
+            window.location.href="login.php";
+        </script>';
+    }
+    ?>
 <!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
         <script src="../CSS/bootstrap-js/popper.min.js"></script>
         <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var reg_id=$('#region').val()
+                $.ajax({
+                    type: 'POST',
+                    url: 'esential/get_comunas.php',
+                    data: {'reg_id' : reg_id}
+                })
+                .done(function(lista){
+                    $('#comuna').html(lista)
+                })
+                .fail(function(){
+                    alert("FALLO")
+                })
+            $('#region').on('change' ,function(){
+                var reg_id=$('#region').val()
+                $.ajax({
+                    type: 'POST',
+                    url: 'esential/get_comunas.php',
+                    data: {'reg_id' : reg_id}
+                })
+                .done(function(lista){
+                    $('#comuna').html(lista)
+                })
+                .fail(function(){
+                    alert("FALLO")
+                })
+            });
+        });
+      </script>
     </body>
 </html>

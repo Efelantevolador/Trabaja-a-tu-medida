@@ -40,8 +40,10 @@
                             </div>
                             <div class="col-xl-1"></div>
                         </div>
-                        <form action="">
-                            <!--*Formulario de Propuesta*-->
+                        <form action="../CONTROLER/ControladorBase.php" method="post">
+                            <input type="hidden" name="c" value="Postulacion_controller" />
+                            <input type="hidden" name="a" value="createPostulacion" />    
+                        <!--*Formulario de Propuesta*-->
                                 <h3>Ubicacion de Sucursal</h3>
                                     <div class="row">
                                         <div class="col-xl-6">
@@ -78,7 +80,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Calle:</span>
                                                 </div>
-                                                <input type="text" name="rut" value="">
+                                                <input type="text" name="calle" value="">
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
@@ -86,7 +88,7 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">N° Calle:</span>
                                                 </div>
-                                                <input type="text" name="rut" value="">
+                                                <input type="text" name="n_calle" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -95,9 +97,20 @@
                                         <div class="col-xl-6">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
+                                                    <label class="input-group-text" for="id">N° de pisos :</label>
+                                                </div>
+                                                <select name="pisos" class="custom-select" id="pisos">
+                                                    <?php  for($i=1;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+                                                    <option value="11">más de 10</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6" id="div-ascensor">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-append">
                                                     <label class="input-group-text" for="id">N° Ascensores :</label>
                                                 </div>
-                                                <select name="ascensores" class="custom-select" id="id">
+                                                <select name="ascensores" class="custom-select" id="ascensores">
                                                     <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
                                                 </select>
                                             </div>
@@ -117,19 +130,37 @@
                                     <div class="row">
                                         <div class="col-xl-6">
                                             <div class="input-group mb-4">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Salario:</span>
+                                                <div class="input-group-append">
+                                                    <label class="input-group-text" for="id">Tipo de trabajo:</label>
                                                 </div>
-                                                <input type="text" name="salario" value="">
+                                                <select name="tipo_trab" class="custom-select" id="tipo_trab">
+                                                    <option value="1">Part-time</option>
+                                                    <option value="2">Full-time</option>
+                                                    <option value="3">Temporario</option>
+                                                    <option value="4">Pasantia</option>
+                                                    <option value="5">Por Contrato</option>
+                                                    <option value="6">Voluntario</option>
+                                                    <option value="7">Por Horas</option>
+                                                    <option value="8">Fines de Semana</option>
+                                                    <option value="9">Teletrabajo</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="input-group mb-4">
-                                                <div class="input-group-append">
-                                                    <label class="input-group-text" for="id">Tipo de Horario :</label>
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Salario:</span>
                                                 </div>
-                                                <select name="horario" class="custom-select" id="id">
-                                                    <option value="1"></option>
+                                                <select name="sueldo" id="sueldo">
+                                                    <option value="0">menos de $300.000</option>     
+                                                    <option value="1">entre $300.000 - $400.000</option>  
+                                                    <option value="2">entre $400.000 - $500.000</option>  
+                                                    <option value="3">entre $500.000 - $600.000</option>  
+                                                    <option value="4">entre $600.000 - $700.000</option>  
+                                                    <option value="5">entre $700.000 - $800.000</option>  
+                                                    <option value="6">entre $800.000 - $900.000</option>  
+                                                    <option value="7">entre $900.000 - $1.000.000</option>  
+                                                    <option value="8">más de $1.000.000</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -182,9 +213,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="extremidad" id=""> 
+                                                <input type="radio" name="extremidad" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="extremidad" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="extremidad" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -193,9 +224,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="rampa" id=""> 
+                                                <input type="radio" name="rampa" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="rampa" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="rampa" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -204,9 +235,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="puerta" id=""> 
+                                                <input type="radio" name="puerta" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="puerta" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="puerta" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -215,9 +246,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="manuales" id=""> 
+                                                <input type="radio" name="manuales" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="manuales" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="manuales" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -226,9 +257,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="coordinacion" id=""> 
+                                                <input type="radio" name="coordinacion" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="coordinacion" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="coordinacion" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -240,10 +271,13 @@
                                         <div class="col-xl-4">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-prepend">
-                                                    <span class="input-group-text" id="basic-addon1">Espacio de trabajo :</span>
+                                                    <span class="input-group-text" id="basic-addon1">Uso de fuerza :</span>
                                                 </div>
-                                                <select name="month" class="custom-select" id="id">
-                                                    <option value="Seleccione opcion"></option>
+                                                <select name="fuerza" class="custom-select" id="id">
+                                                    <option value="0">Nulo</option>
+                                                    <option value="1">Bajo</option>
+                                                    <option value="2">Medio</option>
+                                                    <option value="3">Alto</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -254,9 +288,9 @@
                                         </div>
                                         <div class="col-xl-4">
                                             <div class="row">
-                                                <input type="radio" name="pie" id=""> 
+                                                <input type="radio" name="pie" id="" value="1"> 
                                                     <p style="margin-left:5px;">Si</p>
-                                                <input style="margin-left:10px;"type="radio" name="pie" id=""> 
+                                                <input style="margin-left:10px;"type="radio" name="pie" id="" value="0"> 
                                                     <p style="margin-left:5px;">No</p>
                                             </div>
                                         </div>
@@ -268,8 +302,12 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Tiempo de pie :</span>
                                                 </div>
-                                                <select name="month" class="custom-select" id="id">
-                                                    <option value="Seleccione opcion"></option>
+                                                <select name="tiempo_pie" class="custom-select" id="id">
+                                                    <option value="1">menos de 30 minutos</option>
+                                                    <option value="2">entre 30 minutos a 1 hora</option>
+                                                    <option value="3">entre 1 a 2 horas</option>
+                                                    <option value="4">entre 2 a 3 horas</option>
+                                                    <option value="5">más de 3 horas</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -294,6 +332,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
+            $('#div-ascensor').hide();
         $('#cbxregion').on('change' ,function(){
             var reg_id=$('#cbxregion').val()
             $.ajax({
@@ -307,6 +346,15 @@
             .fail(function(){
                 alert("FALLO")
             })
+        });
+
+        $('#pisos').on('change' ,function(){
+            if($('#pisos').val()>1){
+                $('#div-ascensor').show();
+            }
+            else{
+                $('#div-ascensor').hide();
+            }
         });
       });
     </script>

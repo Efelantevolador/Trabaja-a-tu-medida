@@ -5,23 +5,38 @@
         private $id;
         private $direccion;
         private $n_ascensores;
+        private $n_pisos;
         private $n_banos;
         private $salario;
-        private $tipo_horario;
+        private $tipo_trabajo;
         private $area;
         private $profesion;
         private $espacio_trabajo;
         private $descrip;
         private $empresa;
-        private $pre1;
-        private $pre2;
-        private $pre3;
-        private $pre4;
-        private $pre5;
-        private $pre6;
+        private $pre1;//Extremidades superiores
+        private $pre2;//Rampas
+        private $pre3;//Puertas anchas
+        private $pre4;//Trabajo manuales
+        private $pre5;//Coordinacion
+        private $pre6;//Fuerza
+        private $pre7;//De pie
+        private $pre8;//Tiempo de pie
 
         public function __construct(){
             
+        }
+
+        public function setPregunta8($pre8){
+            $this->pre8=$pre8;
+        }
+
+        public function setPregunta7($pre7){
+            $this->pre7=$pre7;
+        }
+
+        public function setN_pisos($n){
+            $this->n_pisos=$n;
         }
 
         public function setDescrip($des){
@@ -68,8 +83,8 @@
             $this->area= $area;
         }
 
-        public function setTipo_horario($tipo){
-            $this->tipo_horario = $tipo;
+        public function setTipo_trabajo($tipo){
+            $this->tipo_trabajo = $tipo;
         }
 
         public function setSalario($sal){
@@ -108,6 +123,10 @@
             return $this->empresa;
         }
 
+        public function getPre7(){
+            return $this->pre7;
+        }
+
         public function getPre6(){
             return $this->pre6;
         }
@@ -144,8 +163,8 @@
             return $this->area;
         }
 
-        public function getTipo_horario(){
-            return $this->tipo_horario;
+        public function getTipo_trabajo(){
+            return $this->tipo_trabajo;
         }
 
         public function getSalario(){
@@ -174,5 +193,18 @@
 
         public function getId(){
             return $this->id;
+        }
+
+        public function create(){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="INSERT INTO postulacion VALUES ('','".$this->area."','".$this->descrip."','".$this->empresa."','".$this->n_pisos."','".$this->n_ascensores."','".$this->n_banos."','".$this->salario."','".$this->direccion."','".$this->tipo_trabajo."','".$this->profesion."','".$this->espacio_trabajo."','".$this->pre1."','".$this->pre2."','".$this->pre3."','".$this->pre4."','".$this->pre5."','".$this->pre6."','".$this->pre7."','".$this->pre8."')";
+            if ($conexion->query($sql) === TRUE) {
+                return "exito";
+            } 
+            else{
+                return $conexion->error;
+            }
+            $conexion->close();
         }
     }

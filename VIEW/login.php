@@ -9,6 +9,10 @@
         <link rel="stylesheet" href="../CSS/bootstrap-css/bootstrap.min.css">
         
     </head>
+    <?php
+        session_start();
+        session_destroy();
+    ?>
     <body>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     
