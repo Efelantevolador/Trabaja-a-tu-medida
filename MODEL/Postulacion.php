@@ -123,6 +123,10 @@
             return $this->empresa;
         }
 
+        public function getPre8(){
+            return $this->pre8;
+        }
+
         public function getPre7(){
             return $this->pre7;
         }
@@ -163,6 +167,10 @@
             return $this->area;
         }
 
+        public function getN_pisos(){
+            return $this->n_pisos;
+        }
+
         public function getTipo_trabajo(){
             return $this->tipo_trabajo;
         }
@@ -195,6 +203,19 @@
             return $this->id;
         }
 
+        public function delete(){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="DELETE FROM postulacion WHERE cod_postulacion='".$this->id."'";
+            if ($conexion->query($sql) === TRUE) {
+                return "exito";
+            } 
+            else{
+                return $conexion->error;
+            }
+            $conexion->close();
+        }
+
         public function create(){
             $conn=new Conexion();
             $conexion=$conn ->conectar();
@@ -206,5 +227,48 @@
                 return $conexion->error;
             }
             $conexion->close();
+        }
+
+        public function update(){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="UPDATE postulacion set area='".$this->area."', descrip='".$this->descrip."', empresa='".$this->empresa."', num_pisos='".$this->n_pisos."', num_ascensores='".$this->n_ascensores."', num_banosdis='".$this->n_banos."', sueldo_postu='".$this->salario."', direccion='".$this->direccion."', tipo_trabajo='".$this->tipo_trabajo."', profesion='".$this->profesion."', espacio_trabajo='".$this->espacio_trabajo."', pregunta_1='".$this->pre1."', pregunta_2='".$this->pre2."', pregunta_3='".$this->pre3."', pregunta_4='".$this->pre4."', pregunta_5='".$this->pre5."', pregunta_6='".$this->pre6."', pregunta_7='".$this->pre7."', pregunta_8='".$this->pre8."' WHERE cod_postulacion='".$this->id."'";
+            if ($conexion->query($sql) === TRUE) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        public function getbyId(){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="SELECT * FROM postulacion WHERE cod_postulacion='".$this->id."'";
+            $pos=new Postulacion();
+            $result = $conexion->query($sql);
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $pos->setId($row["cod_postulacion"]);
+                $pos->setArea($row["area"]);
+                $pos->setDescrip($row["descrip"]);
+                $pos->setEmpresa($row["empresa"]);
+                $pos->setN_pisos($row["num_pisos"]);
+                $pos->setN_ascensor($row["num_ascensores"]);
+                $pos->setN_banos($row["num_banosdis"]);
+                $pos->setSalario($row["sueldo_postu"]);
+                $pos->setDireccion($row["direccion"]);
+                $pos->setTipo_trabajo($row["tipo_trabajo"]);
+                $pos->setProfesion($row["profesion"]);
+                $pos->setEspacio_trabajo($row["espacio_trabajo"]);
+                $pos->setPregunta1($row["pregunta_1"]);
+                $pos->setPregunta2($row["pregunta_2"]);
+                $pos->setPregunta3($row["pregunta_3"]);
+                $pos->setPregunta4($row["pregunta_4"]);
+                $pos->setPregunta5($row["pregunta_5"]);
+                $pos->setPregunta6($row["pregunta_6"]);
+                $pos->setPregunta7($row["pregunta_7"]);
+                $pos->setPregunta8($row["pregunta_8"]);
+            }
+            return $pos;
         }
     }

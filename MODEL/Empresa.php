@@ -114,10 +114,19 @@
             $conexion=$conn->conectar();
             $sql="SELECT * FROM empresa WHERE rut_empresa='".$this->rut_empresa."'";
             $emp=new Empresa();
+            $viv=new Vivienda();
             $result = $conexion->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $emp->setDireccion($row["direccion"]);
+                $emp->setRut_empresa($row["rut_empresa"]);
+                $emp->setNum_trab($row["num_trabajadores"]);
+                $emp->setCorreo($row["correo_empresa"]);
+                $emp->setNom_empresa($row["nom_empresa"]);
+                $emp->setTelefono($row["telefono"]);
+                $emp->setRazon_social($row["razon_social"]);
+                $emp->setSitio_web($row["sitio_web"]);
+                $viv->setId($row["direccion"]);
+                $emp->setDireccion($viv->getbyId());
             }
             return $emp;
         }
