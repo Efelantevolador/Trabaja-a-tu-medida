@@ -24,6 +24,20 @@ class Region{
         $this->nom_region=$nom_region;
     }
 
+    public function getbyId(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="SELECT * FROM region WHERE cod_region='".$this->cod_region."'";
+        $result = $conexion->query($sql);
+        $r=new Region();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $r->setCod_region($row["cod_region"]);
+            $r->setNom_region($row["nom_region"]);
+        }
+        return $r;
+    }
+
     public function listar_regiones(){
         $conn=new Conexion();
         $conexion=$conn->conectar();

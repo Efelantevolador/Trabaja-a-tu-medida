@@ -1,8 +1,10 @@
 <?php
   require_once("conexion.php");
+  require_once("Postulante.php");
   class Postulacion
     {
         private $id;
+        private $nombre;
         private $direccion;
         private $n_ascensores;
         private $n_pisos;
@@ -25,6 +27,10 @@
 
         public function __construct(){
             
+        }
+
+        public function setNombre($nom){
+            $this->nombre=$nom;
         }
 
         public function setPregunta8($pre8){
@@ -115,6 +121,10 @@
             $this->id = $id;
         }
 
+        public function getNombre(){
+            return $this->nombre;
+        }
+
         public function getDescrip(){
             return $this->descrip;
         }
@@ -203,6 +213,23 @@
             return $this->id;
         }
 
+        public function getPostulantes(){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="SELECT * FROM lista_postulacion WHERE cod_post='".$this->id."'";
+            $result = $conexion->query($sql);
+            $lista=[];
+            $post=new Postulante();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $post->setRut($row["cod_rut"]);
+                    $lista[]=$post;
+                }
+            }
+            return $lista;
+            $conexion->close();
+        }
+
         public function delete(){
             $conn=new Conexion();
             $conexion=$conn ->conectar();
@@ -248,6 +275,7 @@
             $result = $conexion->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
+                $pos->setNombre($row["nom_postulacion"]);
                 $pos->setId($row["cod_postulacion"]);
                 $pos->setArea($row["area"]);
                 $pos->setDescrip($row["descrip"]);

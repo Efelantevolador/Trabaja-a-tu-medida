@@ -50,5 +50,19 @@ class Comuna{
         }
         return $lista;
     }
+
+    public function getbyId(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="SELECT * FROM comuna WHERE cod_comuna='".$this->cod_comuna."'";
+        $result = $conexion->query($sql);
+        $c=new Comuna();
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $c->setCod_comuna($row["cod_comuna"]);
+            $c->setNom_comuna($row["nom_comuna"]);
+        }
+        return $c;
+    }
 }
 ?>

@@ -2,6 +2,7 @@
   require_once("conexion.php");
   require_once("Vivienda.php");
   require_once("Estudio.php");
+  require_once("Postulacion.php");
     class Postulante
     {
       private $rut;
@@ -157,6 +158,32 @@
         return $lista;
       }
 
+      public function postular($cod){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="INSERT INTO lista_postulacion VALUES('','".$cod."','".$this->rut."')";
+        if ($conexion->query($sql) === TRUE) {
+            return "exito";
+        } 
+        else{
+            return $conexion->error;
+        }
+        $conexion->close();
+      }
+
+      public function despostular($cod){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="DELETE FROM lista_postulacion WHERE cod_rut='".$this->rut."' AND cod_post='".$cod."'";
+        if ($conexion->query($sql) === TRUE) {
+            return "exito";
+        } 
+        else{
+            return $conexion->error;
+        }
+        $conexion->close();
+      }
+
       public function getbyId($rut){
         $conn=new Conexion();
         $conexion=$conn->conectar();
@@ -176,6 +203,22 @@
         }
         return $p;
         $conexion->close();
+      }
+
+      public function getPostulaciones(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="SELECT * FROM lista_postulacion WHERE cod_rut='".$this->rut."'";  
+        $result = $conexion->query($sql);
+        $lista=[];
+        if ($result->num_rows > 0) {
+          while($row = $result->fetch_assoc()) {
+            $pos=new Postulacion();
+            $pos->setId($row["cod_post"]);
+            $lista[]=$pos;
+          } 
+        }
+        return $lista;
       }
 
       public function update(){

@@ -194,7 +194,15 @@
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Espacio de trabajo :</span>
                                                 </div>
-                                                <input type="text" name="espacio" value="">
+                                                <select type="text" name="espacio"  id="espacio">
+                                                    <option value="0">Oficina</option>
+                                                    <option value="1">Bodega</option>
+                                                    <option value="2">Terreno</option>
+                                                    <option value="3">Produccion</option>
+                                                    <option value="4">Empaque</option>
+                                                    <option value="5">En caja</option>
+                                                    <option value="6">Otro</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">

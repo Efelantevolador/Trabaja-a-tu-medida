@@ -32,11 +32,13 @@ function getComuna(){
     }
     elseif(isset($_SESSION["Empresa"])){
         $vi=new Vivienda();
-        $pos=new Postulacion();
-        $pos->setId($_POST["cod"]);
-        $pos=$pos->getbyId();
-        $vi->setId($pos->getDireccion());
-        $vi=$vi->getbyId();
+        if(isset($_POST["cod"])){
+            $pos=new Postulacion();
+            $pos->setId($_POST["cod"]);
+            $pos=$pos->getbyId();
+            $vi->setId($pos->getDireccion());
+            $vi=$vi->getbyId();
+        }
         $id_region = $_POST["reg_id"];
         $lista='';
         $com=new Comuna();

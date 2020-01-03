@@ -40,5 +40,19 @@ class Area{
         }
         return $lista;
     }
+
+    public function getbyId(){
+        $conn=new Conexion();
+        $conexion=$conn->conectar();
+        $sql="SELECT * FROM area WHERE id_area='".$this->cod_area."'";
+        $result = $conexion->query($sql);
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $are=new Area();
+            $are->setCod_area($row["id_area"]);
+            $are->setNom_area($row["nom_area"]);
+        }
+        return $are;
+    }
 }
 ?>

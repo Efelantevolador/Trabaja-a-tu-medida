@@ -55,7 +55,7 @@
             }
         }
 
-        public function  deletePostulacion(){
+        public function deletePostulacion(){
             $p=new Postulacion();
             $p->setId($_GET["cod"]);
             if($p->delete()=="exito"){
@@ -109,13 +109,13 @@
             if($p->create()=="exito"){
                 echo'<script type="text/javascript">
                     alert("La postulacion fue creada exitosamente");
-                    window.location.href="../VIEW/detalle_postulacion.php?cod='.$p->getId().'";
+                    window.location.href="../VIEW/crearOferta.php";
                 </script>';
             }
             else{
                 echo'<script type="text/javascript">
                     alert("No tienes permisos para entrar aquí");
-                    window.location.href="../VIEW/detalle_postulacion.php?cod='.$p->getId().'";
+                    window.location.href="../VIEW/crearOferta.php";
                 </script>';
             }
         }

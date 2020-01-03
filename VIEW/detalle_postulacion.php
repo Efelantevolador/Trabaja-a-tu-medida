@@ -21,38 +21,51 @@
         require_once("../MODEL/Area.php");
         require_once("../MODEL/Postulacion.php");
         require_once("../MODEL/Vivienda.php");
+        require_once("../MODEL/Region.php");
+        require_once("../MODEL/Comuna.php");
         session_start();
         $ar=new Area();
+        $p=new Postulante();
         $viv=new Vivienda();
         $emp=new Empresa();
         $postu=new Postulacion();
+        $p=new Postulante();
+    ?>
+<!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
+    
+    <?php require("../VIEW/esential/navbar.php")?>
+    <?php
         if(!isset($_GET["cod"])){
             echo'<script type="text/javascript">
                 alert("No se encuentra la postulacion");
             </script>';
         }
-        else{
-            $postu->setId($_GET["cod"]);
-            $postu=$postu->getbyId();
-            $viv->setId($postu->getDireccion());
-            $viv=$viv->getbyId();
-            if(isset($_SESSION["Empresa"])){
-                $emp=$_SESSION["Empresa"];
-            }
     ?>
-<!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
-    
-    <?php require("../VIEW/esential/navbar.php")?>
-
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
         <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
             <div class="col-xl-2">
-                <?php require("../VIEW/esential/menu-lateral.php");?>
+                <?php require("../VIEW/esential/menu-lateral.php");
+                if(!isset($_GET["cod"])){
+                    echo'<script type="text/javascript">
+                        alert("No se encuentra la postulacion");
+                    </script>';
+                }
+                else{
+                    $postu->setId($_GET["cod"]);
+                    $postu=$postu->getbyId();
+                    $viv->setId($postu->getDireccion());
+                    $viv=$viv->getbyId();
+                    if(isset($_SESSION["Empresa"])){
+                        $emp=$_SESSION["Empresa"];
+                    }
+                    if(isset($_SESSION["Postulante"])){
+                        $pos=$_SESSION["Postulante"];
+                    }?>
             </div>
             <div class="container">
                 <div class="row align-content-center">
                     <div class="col-xl-10 text-center">
-                        <h1>Postulacion</h1>
+                        <h1><?php echo $postu->getNombre();?></h1>
                     </div>
                     <div class="col-xl-2"></div> 
                     <?php
@@ -60,7 +73,6 @@
                     ?>
                     <!--*****************|Postulante|*************************************************************-->
                         <div class="col-xl-10" style="height:100%;border-top:dotted 1px black;">
-                            <h2 style="color:red;">Vista de Postulante</h2> <!--QUITAR-->
                             <h3 style="margin-top:10px;">Ubicacion de Sucursal</h3>
                             <div class="row">
                                 <div class="col-xl-6">
@@ -68,17 +80,24 @@
                                         <div class="input-group-append">
                                             <label class="input-group-text" style="border:0px;" for="id">Region :</label>
                                         </div>
-                                        <select name="region" class="custom-select" id="cbxregion" disabled style="background:#E9E8E8;">
-                                            <option selected disabled value="">- Región -</option>
-                                            <?php
-                                                $r=new Region_controller;
-                                                $listar=$r->listar();
-                                                foreach ($listar as $r):
-                                            ?>
-                                                <option value="<?php echo $r->getCod_region()?>"><?php echo $r->getNom_region()?></option>
-                                            <?php 
-                                                endforeach;
-                                            ?>
+                                        <select name="region" disabled class="custom-select" id="region">
+                                            <option disabled>- Región -</option>
+                                            <option <?php if($viv->getRegion()==15){echo "selected";}?> value="15">Región de Arica y Parinacota</option>
+                                            <option <?php if($viv->getRegion()==1){echo "selected";}?> value="1">Región de Tarapacá</option>
+                                            <option <?php if($viv->getRegion()==2){echo "selected";}?> value="2">Región de Antofagasta</option>
+                                            <option <?php if($viv->getRegion()==3){echo "selected";}?> value="3">Región de Atacama</option>
+                                            <option <?php if($viv->getRegion()==4){echo "selected";}?> value="4">Región de Coquimbo</option>
+                                            <option <?php if($viv->getRegion()==5){echo "selected";}?> value="5">Región de Valparaíso</option>
+                                            <option <?php if($viv->getRegion()==13){echo "selected";}?> value="13">Región de Metropolitana de Santiago</option>
+                                            <option <?php if($viv->getRegion()==6){echo "selected";}?> value="6">Región de Libertador General Bernardo O'Higgins</option>
+                                            <option <?php if($viv->getRegion()==7){echo "selected";}?> value="7">Región de Maule</option>
+                                            <option <?php if($viv->getRegion()==16){echo "selected";}?> value="16">Región de Ñuble</option>
+                                            <option <?php if($viv->getRegion()==8){echo "selected";}?> value="8">Región de Biobío</option>
+                                            <option <?php if($viv->getRegion()==9){echo "selected";}?> value="9">Región de La Araucanía</option>
+                                            <option <?php if($viv->getRegion()==14){echo "selected";}?> value="14">Región de Los Ríos</option>
+                                            <option <?php if($viv->getRegion()==10){echo "selected";}?> value="10">Región de Los Lagos</option>
+                                            <option <?php if($viv->getRegion()==11){echo "selected";}?> value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                                            <option <?php if($viv->getRegion()==12){echo "selected";}?> value="12">Región de Magallanes y de la Antártica Chilena</option>
                                         </select>
                                     </div>
                                 </div>
@@ -87,8 +106,8 @@
                                         <div class="input-group-append" >
                                             <label class="input-group-text" style="border:0px;" for="id">Comuna :</label>
                                         </div>
-                                        <select name="comuna" class="custom-select" id="comuna" disabled style="background:#E9E8E8;">
-                                            <option selected disabled value="">- Comuna -</option>
+                                        <select name="comuna" disabled class="custom-select" id="comuna">
+
                                         </select>
                                     </div>
                                 </div>
@@ -97,7 +116,9 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="border:0px;" id="basic-addon1">Calle:</span>
                                         </div>
-                                        <input type="text" name="calle"  class="custom-select" value="TEXTO DE Calle" disabled style="background:#E9E8E8;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text" style="border:0px;" id="basic-addon1"><?php echo $viv->getCalle();?></span>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
@@ -105,7 +126,9 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text"  style="border:0px;" id="basic-addon1">N° Calle:</span>
                                         </div>
-                                        <input type="text" name="n_calle" class="custom-select" value="TEXTO NUMERO CALLE" disabled style="background:#E9E8E8;">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"  style="border:0px;" id="basic-addon1"><?php echo $viv->getNum_calle();?></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +169,24 @@
                                         </div>
                                         <select name="ascensores" class="custom-select" id="ascensores" disabled style="background:#E9E8E8;">
                                             <option selected disabled value="">- Ascensores -</option>
-                                            <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+                                            <?php 
+                                                    for($i=0;$i<=10;$i++) { 
+                                                            if($i==$postu->getN_ascensor()){
+                                                                echo "<option value='".$i."' selected>".$i."</option>"; 
+                                                            }
+                                                            else{
+                                                                echo "<option value='".$i."'>".$i."</option>";
+                                                            }
+                                                            
+                                                        }
+                                                        if(11==$postu->getN_ascensor()){
+                                                            echo "<option value='11' selected>más de 10</option>"; 
+                                                        }
+                                                        else{
+                                                            echo "<option value='11'>más de 10</option>"; 
+                                                        }
+                                                
+                                                    ?>
                                         </select>
                                     </div>
                                 </div>
@@ -157,7 +197,24 @@
                                         </div>
                                         <select name="banos" class="custom-select" id="id" disabled style="background:#E9E8E8;">
                                             <option selected disabled value="">- Baños -</option>
-                                            <?php  for($i=0;$i<=10;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
+                                            <?php 
+                                                    for($i=0;$i<=10;$i++) { 
+                                                            if($i==$postu->getN_banos()){
+                                                                echo "<option value='".$i."' selected>".$i."</option>"; 
+                                                            }
+                                                            else{
+                                                                echo "<option value='".$i."'>".$i."</option>";
+                                                            }
+                                                            
+                                                        }
+                                                        if(11==$postu->getN_banos()){
+                                                            echo "<option value='11' selected>más de 10</option>"; 
+                                                        }
+                                                        else{
+                                                            echo "<option value='11'>más de 10</option>"; 
+                                                        }
+                                                
+                                                    ?>
                                         </select>
                                     </div>
                                 </div>
@@ -169,17 +226,17 @@
                                         <div class="input-group-append">
                                             <label class="input-group-text" style="border:0px;" for="id">Tipo de trabajo:</label>
                                         </div>
-                                        <select name="tipo_trab" class="custom-select" id="tipo_trab" disabled style="background:#E9E8E8;">
+                                        <select name="tipo_trab" class="custom-select" disabled id="tipo_trab">
                                             <option selected disabled value="">- Tipo de trabajo -</option>
-                                            <option value="1">Part-time</option>
-                                            <option value="2">Full-time</option>
-                                            <option value="3">Temporario</option>
-                                            <option value="4">Pasantia</option>
-                                            <option value="5">Por Contrato</option>
-                                            <option value="6">Voluntario</option>
-                                            <option value="7">Por Horas</option>
-                                            <option value="8">Fines de Semana</option>
-                                            <option value="9">Teletrabajo</option>
+                                            <option value="1" <?php if($postu->getTipo_trabajo()==1){ echo "selected";}?>>Part-time</option>
+                                            <option value="2" <?php if($postu->getTipo_trabajo()==2){ echo "selected";}?>>Full-time</option>
+                                            <option value="3" <?php if($postu->getTipo_trabajo()==3){ echo "selected";}?>>Temporario</option>
+                                            <option value="4" <?php if($postu->getTipo_trabajo()==4){ echo "selected";}?>>Pasantia</option>
+                                            <option value="5" <?php if($postu->getTipo_trabajo()==5){ echo "selected";}?>>Por Contrato</option>
+                                            <option value="6" <?php if($postu->getTipo_trabajo()==6){ echo "selected";}?>>Voluntario</option>
+                                            <option value="7" <?php if($postu->getTipo_trabajo()==7){ echo "selected";}?>>Por Horas</option>
+                                            <option value="8" <?php if($postu->getTipo_trabajo()==8){ echo "selected";}?>>Fines de Semana</option>
+                                            <option value="9" <?php if($postu->getTipo_trabajo()==9){ echo "selected";}?>>Teletrabajo</option>
                                         </select>
                                     </div>
                                 </div>
@@ -190,15 +247,15 @@
                                         </div>
                                         <select name="sueldo" class="custom-select" id="sueldo" disabled style="background:#E9E8E8;">
                                             <option selected  disabled value="">- Sueldo -</option>
-                                            <option value="0">menos de $300.000</option>     
-                                            <option value="1">entre $300.000 - $400.000</option>  
-                                            <option value="2">entre $400.000 - $500.000</option>  
-                                            <option value="3">entre $500.000 - $600.000</option>  
-                                            <option value="4">entre $600.000 - $700.000</option>  
-                                            <option value="5">entre $700.000 - $800.000</option>  
-                                            <option value="6">entre $800.000 - $900.000</option>  
-                                            <option value="7">entre $900.000 - $1.000.000</option>  
-                                            <option value="8">más de $1.000.000</option>
+                                            <option value="0" <?php if($postu->getSalario()==0){ echo "selected";}?>>menos de $300.000</option>     
+                                            <option value="1" <?php if($postu->getSalario()==1){ echo "selected";}?>>entre $300.000 - $400.000</option>  
+                                            <option value="2" <?php if($postu->getSalario()==2){ echo "selected";}?>>entre $400.000 - $500.000</option>  
+                                            <option value="3" <?php if($postu->getSalario()==3){ echo "selected";}?>>entre $500.000 - $600.000</option>  
+                                            <option value="4" <?php if($postu->getSalario()==4){ echo "selected";}?>>entre $600.000 - $700.000</option>  
+                                            <option value="5" <?php if($postu->getSalario()==5){ echo "selected";}?>>entre $700.000 - $800.000</option>  
+                                            <option value="6" <?php if($postu->getSalario()==6){ echo "selected";}?>>entre $800.000 - $900.000</option>  
+                                            <option value="7" <?php if($postu->getSalario()==7){ echo "selected";}?>>entre $900.000 - $1.000.000</option>  
+                                            <option value="8" <?php if($postu->getSalario()==8){ echo "selected";}?>>más de $1.000.000</option>
                                         </select>
                                     </div>
                                 </div>
@@ -207,9 +264,17 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="border:0px;" id="basic-addon1">Area :</span>
                                         </div>
-                                        <div class="input-group-prepend">
-                                            <span class="input-group-text" style="border:0px;" id="basic-addon1">NOMBRE</span>
-                                        </div>
+                                        <select name="sueldo" class="custom-select" id="sueldo" disabled style="background:#E9E8E8;">
+                                            <option selected disabled value="">- Area -</option>
+                                            <?php 
+                                                $lista=$ar->listar_areas();
+                                                foreach ($lista as $ar):
+                                            ?>
+                                            <option value="<?php echo $ar->getCod_area();?>"<?php if($postu->getArea()==$ar->getCod_area()){ echo "selected";}?>><?php echo $ar->getNom_area();?></option>
+                                            <?php
+                                            endforeach;
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
@@ -217,7 +282,7 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="border:0px;" id="basic-addon1">Profesion u oficio :</span>
                                         </div>
-                                        <input type="text" name="profesion" class="custom-select" value="PROFECION" disabled style="background:#E9E8E8;">
+                                        <input type="text" name="profesion" disabled value="<?php echo $postu->getProfesion()?>">
                                     </div>
                                 </div>
                                 <div class="col-xl-6">
@@ -225,7 +290,15 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="border:0px;" id="basic-addon1">Espacio de trabajo :</span>
                                         </div>
-                                        <input type="text" name="espacio" class="custom-select" value="ESPACIO TRABAJO" disabled style="background:#E9E8E8;">
+                                        <select type="text" name="espacio" disabled id="espacio">
+                                            <option value="0" <?php if($postu->getEspacio_trabajo()==0){echo "selected";}?>>Oficina</option>
+                                            <option value="1" <?php if($postu->getEspacio_trabajo()==1){echo "selected";}?>>Bodega</option>
+                                            <option value="2" <?php if($postu->getEspacio_trabajo()==2){echo "selected";}?>>Terreno</option>
+                                            <option value="3" <?php if($postu->getEspacio_trabajo()==3){echo "selected";}?>>Produccion</option>
+                                            <option value="4" <?php if($postu->getEspacio_trabajo()==4){echo "selected";}?>>Empaque</option>
+                                            <option value="5" <?php if($postu->getEspacio_trabajo()==5){echo "selected";}?>>En caja</option>
+                                            <option value="6" <?php if($postu->getEspacio_trabajo()==6){echo "selected";}?>>Otro</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
@@ -233,54 +306,95 @@
                                         <div class="input-group-prepend">
                                             <span class="input-group-text" style="border:0px;" id="basic-addon1">Actividades a realizar :</span>
                                         </div>
-                                        <textarea disabled name="actividades" style="width:100%;height:150px;background:#E9E8E8;">
-                                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia minima molestiae molestias 
-                                        nulla eligendi? Distinctio doloremque voluptates vel at facilis, inventore quaerat accusamus 
-                                        ratione dolorum maxime aut, obcaecati modi iste repellendus aliquam quae eaque id aliquid laborum! 
-                                        Cupiditate magni impedit ex? Molestias harum optio sit architecto amet commodi quis illo?
-                                        </textarea>
+                                        <textarea disabled name="actividades" style="width:100%;height:150px;background:#E9E8E8;"><?php echo $postu->getDescrip();?></textarea>
                                     </div>
                                 </div>
                                 <div class="col-xl-12">
                                     <h3>Puntos a considerar:</h3>
-                                    <p> <strong>-</strong> Se requiere de ambas extremidades superiores.</p>
-                                    <p> <strong>-</strong> El establecimiento cumple con rampas en todos los escalones.</p>
-                                    <p> <strong>-</strong> Todas las puertas cumplen con un tamaño necesario para sillas de ruedas.</p>
-                                    <p> <strong>-</strong> El trabajo requiere realizar, trabajos manuales.</p>
-                                    <p> <strong>-</strong> El trabajo requiere coordinacion de manos.</p>
-                                    <p> <strong>-</strong> El trabajo requiere un uso de fuerza Nulo/Bajo/Medio/Alto.</p>
-                                    <p> <strong>-</strong> Se requiere estar de pie para trabajar.</p>
-                                    <p> <strong>-</strong> Requiere estar de pie: Meno de 30 min / 1 a 2 Horas / 2 a 3 Horas / Mas de 3 Horas .</p>
+                                        <?php if($postu->getPre1()==1){?><p> <strong>-</strong> Se requiere de ambas extremidades superiores.</p><?php }?>
+                                        <?php if($postu->getPre2()==1){?><p> <strong>-</strong> El establecimiento cumple con rampas en todos los escalones.</p><?php }?>
+                                        <?php if($postu->getPre3()==1){?><p> <strong>-</strong> Todas las puertas cumplen con un tamaño necesario para sillas de ruedas.</p><?php }?>
+                                        <?php if($postu->getPre4()==1){?><p> <strong>-</strong> El trabajo requiere realizar trabajos manuales.</p><?php }?>
+                                        <?php if($postu->getPre5()==1){?><p> <strong>-</strong> El trabajo requiere coordinacion de manos.</p><?php }?>
+                                    <p> <strong>-</strong> El trabajo requiere un uso de fuerza 
+                                        <?php 
+                                            if($postu->getPre6()==0){
+                                                echo "Nulo.";
+                                            }
+                                            elseif($postu->getPre6()==1){
+                                                echo "Bajo.";
+                                            }
+                                            elseif($postu->getPre6()==2){
+                                                echo "Medio.";
+                                            }
+                                            else{
+                                                echo "Alto.";
+                                            }
+                                        ?></p>
+                                    <?php if($postu->getPre7()==1){?><p> <strong>-</strong> Se requiere estar de pie para trabajar.</p>
+                                    <p> <strong>-</strong> Requiere estar de pie: 
+                                    <?php 
+                                    if($postu->getPre8()==0){
+                                        echo "Menos de 30 min.";
+                                    }
+                                    elseif($postu->getPre8()==1){
+                                        echo "1 a 2 Horas.";
+                                    }
+                                    elseif($postu->getPre8()==2){
+                                        echo "2 a 3 Horas.";
+                                    }
+                                    else{
+                                        echo "Más de 3 Horas.";
+                                    }
+                                    ?></p><?php }?>
                                 </div> 
-                                
+                                <?php
+                                    $comp=0;
+                                    $listpos=$postu->getPostulantes();
+                                    foreach($listpos as $p):
+                                        if($pos->getRut()==$p->getRut()){
+                                            $comp=1;
+                                        }
+                                    endforeach;
+                                    if(!isset($_SESSION["Empresa"])){
+                                        if($comp==0){
+                                ?>
                                 <!--BOTON POSTULAR-->                    
                                     <div class="container">
                                         <div class="row">
                                         <div class="col-xl-3"></div>
                                         <div class="col-xl-6" style="margin-top: 10px;">
-                                            <form action="#" method="post">
+                                            <form action="../CONTROLER/ControladorBase.php?cod=<?php echo $_GET["cod"]?>" method="post">
                                                 <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Postular">
+                                                <input type="hidden" name="c" value="Postulante_controller" />
+                                                <input type="hidden" name="a" value="postular" /> 
                                             </form>
                                         </div>   
                                         <div class="col-xl-3"></div>
                                         </div>
                                     </div>
                                 <!--BOTON POSTULAR-->  
-
+                                    <?php 
+                                    }
+                                    else{
+                                    ?>
                                 <!--BOTON QUITAR POSTULACION-->                 
                                     <div class="container">
                                         <div class="row">
                                         <div class="col-xl-3"></div>
                                         <div class="col-xl-6" style="margin-top: 10px;">
-                                            <form action="#" method="post">
+                                            <form action="../CONTROLER/ControladorBase.php?cod=<?php echo $_GET["cod"]?>" method="post">
                                                 <input type="submit" class="btn btn-outline-danger btn-lg btn-block" value="Quitar Postulacion">
+                                                <input type="hidden" name="c" value="Postulante_controller" />
+                                                <input type="hidden" name="a" value="despostular" /> 
                                             </form>
                                         </div>   
                                         <div class="col-xl-3"></div>
                                         </div>
                                     </div> 
                                 <!--BOTON QUITAR POSTULACION-->  
-
+                                <?php }
+                                }?>
                             </div>
                         </div>
                         <div class="col-xl-2"></div>
@@ -292,7 +406,6 @@
                     ?>
                     <!--*****************|Empresa|*************************************************************-->
                         <div class="col-xl-10" style="margin-top:50px; height:100%;border-top:dotted 1px black;">
-                            <h2 style="color:red;">Vista de Empresa</h2><!--QUITAR-->
                             <form action="../CONTROLER/ControladorBase.php?cod=<?php echo $_GET["cod"]?>" method="post">    
                             <input type="hidden" name="c" value="Postulacion_controller" />
                             <input type="hidden" name="a" value="updatePostulacion" /> 
@@ -507,13 +620,13 @@
                                                     <span class="input-group-text" style="border:0px;" id="basic-addon1">Espacio de trabajo :</span>
                                                 </div>
                                                 <select type="text" name="espacio"  id="espacio">
-                                                    <option value="0">Oficina</option>
-                                                    <option value="1">Bodega</option>
-                                                    <option value="2">Terreno</option>
-                                                    <option value="3">Produccion</option>
-                                                    <option value="4">Empaque</option>
-                                                    <option value="5">En caja</option>
-                                                    <option value="6">Otro</option>
+                                                    <option value="0" <?php if($postu->getEspacio_trabajo()==0){echo "selected";}?>>Oficina</option>
+                                                    <option value="1" <?php if($postu->getEspacio_trabajo()==1){echo "selected";}?>>Bodega</option>
+                                                    <option value="2" <?php if($postu->getEspacio_trabajo()==2){echo "selected";}?>>Terreno</option>
+                                                    <option value="3" <?php if($postu->getEspacio_trabajo()==3){echo "selected";}?>>Produccion</option>
+                                                    <option value="4" <?php if($postu->getEspacio_trabajo()==4){echo "selected";}?>>Empaque</option>
+                                                    <option value="5" <?php if($postu->getEspacio_trabajo()==5){echo "selected";}?>>En caja</option>
+                                                    <option value="6" <?php if($postu->getEspacio_trabajo()==6){echo "selected";}?>>Otro</option>
                                                 </select>
                                             </div>
                                         </div>

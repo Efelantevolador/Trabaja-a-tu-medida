@@ -103,6 +103,40 @@
             
         }
 
+        public function postular(){
+            $pos=new Postulante();
+            $pos=$_SESSION["Postulante"];
+            if($pos->postular($_GET["cod"])=="exito"){
+                echo'<script type="text/javascript">
+                alert("Postulacion exitosa");
+                window.location.href="../VIEW/detalle_postulacion.php?cod='.$_GET["cod"].'";
+            </script>';
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("Error al postular");
+                window.location.href="../VIEW/detalle_postulacion.php?cod='.$_GET["cod"].'";
+            </script>';
+            }
+        }
+
+        public function despostular(){
+            $pos=new Postulante();
+            $pos=$_SESSION["Postulante"];
+            if($pos->despostular($_GET["cod"])=="exito"){
+                echo'<script type="text/javascript">
+                alert("Postulacion eliminada");
+                window.location.href="../VIEW/detalle_postulacion.php?cod='.$_GET["cod"].'";
+            </script>';
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("Error al postular");
+                window.location.href="../VIEW/detalle_postulacion.php?cod='.$_GET["cod"].'";
+            </script>';
+            }
+        }
+
         public function deleteEstudio($cod){
             $est=new Estudio();
             $pos=new Postulante();
@@ -115,8 +149,14 @@
             else{
                 echo "<script>error_delest()</script>";
             }
+        }
 
-        
+        public function getPostulaciones(){
+            $p=new Postulante();
+            $p=$_SESSION["Postulante"];
+            $lista=[];
+            $lista=$p->getPostulaciones();
+            return $lista;
         }
 
         public function agregarEstudio(){
