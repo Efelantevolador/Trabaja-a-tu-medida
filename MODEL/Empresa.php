@@ -10,7 +10,6 @@
         private $sitio_web;
         private $num_trabajadores;
         private $pass;
-        private $direccion;
 
         public function __construct()
         {
@@ -125,8 +124,6 @@
                 $emp->setTelefono($row["telefono"]);
                 $emp->setRazon_social($row["razon_social"]);
                 $emp->setSitio_web($row["sitio_web"]);
-                $viv->setId($row["direccion"]);
-                $emp->setDireccion($viv->getbyId());
             }
             return $emp;
         }
@@ -149,7 +146,6 @@
             $sql="SELECT * FROM empresa WHERE correo_empresa='".$this->correo_empresa."' AND pass='".$this->pass."'";
             $result = $conexion->query($sql);
             $emp=new Empresa();
-            $viv=new Vivienda();
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
                 $emp->setRut_empresa($row["rut_empresa"]);
@@ -160,8 +156,6 @@
                 $emp->setTelefono($row["telefono"]);
                 $emp->setRazon_social($row["razon_social"]);
                 $emp->setSitio_web($row["sitio_web"]);
-                $viv->setId($row["direccion"]);
-                $emp->setDireccion($viv->getbyId());
             }
             return $emp;
         }

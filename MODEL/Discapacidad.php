@@ -70,11 +70,11 @@
         public function getbyAyuda(){
             $conn=new Conexion();
             $conexion=$conn->conectar();
-            $sql="SELECT * FROM lista_ayuda WHERE cod_ayuda_lista='".$this->tipo_ayuda."' AND cod_disc_lista='".$this->cod_discapacidad."'";
+            $sql="SELECT * FROM lista_ayuda WHERE cod_ayu_lista='".$this->tipo_ayuda."' AND cod_disc_lista='".$this->cod_discapacidad."'";
             $result = $conexion->query($sql);
+            $dis=new Discapacidad();
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $dis=new Discapacidad();
                 $dis->setCod_discapacidad($row["cod_list_ayu"]);
                 $dis->setTipo_ayuda($row["cod_ayu_lista"]);
                 $dis->setNombre_dis($row["cod_disc_lista"]);
@@ -99,6 +99,26 @@
                 }
                 return $lista;
             }
+        }
+
+        public function setDiscapacidad($rut){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM lista_discapacidad WHERE rut_lista='".$rut."' AND id_disc='".$this->cod_discapacidad."'";
+            $result = $conexion->query($sql);
+            if ($result->num_rows == 0) {
+                $sql= "INSERT INTO lista_discapacidad VALUES ('','".$rut."','".$this->cod_discapacidad."')";
+                if ($conexion->query($sql) === TRUE) {
+                    return "exito";
+                } 
+                else{
+                    return $conexion->error;
+                }
+            }
+            else{
+                return "copia";
+            }
+            $conexion->close();
         }
     }
 ?>

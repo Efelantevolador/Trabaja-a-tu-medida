@@ -248,7 +248,7 @@
       public function setDiscapacidades($cod){
         $conn=new Conexion();
         $conexion=$conn->conectar();
-        $sql= "INSERT INTO lista_discapacidad VALUES ('".$this->rut."','".$cod."')";
+        $sql= "INSERT INTO lista_discapacidad VALUES ('','".$this->rut."','".$cod."')";
         if ($conexion->query($sql) === TRUE) {
             return "exito";
         } 

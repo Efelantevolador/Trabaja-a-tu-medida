@@ -32,7 +32,16 @@
                                                     <label class="input-group-text" for="comboboxP">Salario Estimado :</label>
                                                 </div>
                                                 <select class="custom-select">
-                                                    <option selected disabled id="combotortuga" value="0">-Seleccionar-</option>
+                                                    <option value="" selected disabled>-Seleccionar-</option>
+                                                    <option value="0">menos de $300.000</option>     
+                                                    <option value="1">entre $300.000 - $400.000</option>  
+                                                    <option value="2">entre $400.000 - $500.000</option>  
+                                                    <option value="3">entre $500.000 - $600.000</option>  
+                                                    <option value="4">entre $600.000 - $700.000</option>  
+                                                    <option value="5">entre $700.000 - $800.000</option>  
+                                                    <option value="6">entre $800.000 - $900.000</option>  
+                                                    <option value="7">entre $900.000 - $1.000.000</option>  
+                                                    <option value="8">más de $1.000.000</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -42,7 +51,16 @@
                                                     <label class="input-group-text" for="comboboxP">Tipo de trabajo :</label>
                                                 </div>
                                                 <select class="custom-select">
-                                                    <option selected disabled id="combotortuga" value="0">-Seleccionar-</option>
+                                                    <option value="" selected disabled>-Seleccionar-</option>
+                                                    <option value="1">Part-time</option>
+                                                    <option value="2">Full-time</option>
+                                                    <option value="3">Temporario</option>
+                                                    <option value="4">Pasantia</option>
+                                                    <option value="5">Por Contrato</option>
+                                                    <option value="6">Voluntario</option>
+                                                    <option value="7">Por Horas</option>
+                                                    <option value="8">Fines de Semana</option>
+                                                    <option value="9">Teletrabajo</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -61,41 +79,8 @@
                                 </div>
                             </div>
                             <!-- DOGE AQUI ESTA LA OFERTA DE TRABAJO  -->
-                                <div class="row">
-                                    <div class="col-xl-12" style="border:dotted 1px black;;padding:5px;">
-                                        <div class="row">
-                                            <div class="col-xl-11" style="">
-                                                <h3>
-                                                    <a href="detalle_postulacion.php" target="_blank" rel="noopener">
-                                                        <span title="NOMBRE">Nombre de Oferta</span>
-                                                    </a>
-                                                </h3>
-                                            </div>
-                                            
-                                            <div class="col-xl-1" style="">
-                                                <!--ESTRELLA DE RECOMENDADA  SOLO QUITAR LO QUE ESTA DENTRO PARA QUITAR LA ESTRELLA-->
-                                                <img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">
-                                                <!--ESTRELLA DE RECOMENDADA -->
-                                            </div>
-                                            
-                                            <div class="col-xl-12">
-                                                <div class="row">
-                                                    <div class="col-xl-4"><strong>Publicado:</strong> hace 2 dias</div>
-                                                    <div class="col-xl-4"><strong>Plazo:</strong> 2 dias mas de postulacion</div>
-                                                    <div class="col-xl-4"><strong>Empresa:</strong> <a href="info_empresa.php" style="color:green;">Nombre empresa</a></div>
-                                                    <div class="col-xl-12"><br></div>
-                                                    <div class="col-xl-4"> <strong>Empleo:</strong> Vedetto.</div>
-                                                    <div class="col-xl-4"><strong>Localidad:</strong> Alessandri 230, Viña del Mar, Valparaíso</div>
-                                                    <div class="col-xl-4"><strong>Salario:</strong> Entre $900.000 y $1.000.000</div>
-                                                    <div class="col-xl-12" style="margin-top:7px;"><strong>Detalle:</strong> Se busca Vedetto sin una pierna para
-                                                    hacer el helicoptero sin una elise, que no cobre caro y que sea carismatico simpatico y bueno pa la talla. A 
-                                                    gusto de Diego Oyanedel y rodrigo martinez Lorem ipsum dolor sit amet consectetur, adipisicing elit. At minima 
-                                                    illum quam consectetur distinctio! Perferendis aut ullam quisquam nam.</div>
+                                <div class="row" id="ofertas">
 
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             <!-- DOGE AQUI ESTA LA OFERTA DE TRABAJO  -->
 
@@ -116,6 +101,22 @@
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
         <script src="../CSS/bootstrap-js/popper.min.js"></script>
         <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $.ajax({
+                    type: 'POST',
+                    url: 'esential/filtro.php',
+                    //data: {'reg_id' : reg_id, 'cod' : cod}
+                })
+                .done(function(lista){
+                    $('#ofertas').html(lista)
+                })
+                .fail(function(){
+                    alert("FALLO")
+                })
+        });
+        </script>
         
     </body>
 </html>

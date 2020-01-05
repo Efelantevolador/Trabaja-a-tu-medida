@@ -100,7 +100,223 @@
         }
 
         public function setDiscapacidades(){
-            
+            $pos=new Postulante();
+            $pos=$_SESSION["Postulante"];
+            $dis=new Discapacidad();
+            if(isset($_POST["extremidad"])&&$_POST["extremidad"]=="si"){
+                $datos=$_POST["no_ex"];
+                var_dump($datos);
+                if(count($datos)!=1){
+                    $pro=$_POST["prote"];
+                    for($i=0; $i < count($datos); $i++){
+                        $disca=new Discapacidad();
+                        if($datos[$i]=="BrazoDerecho"){
+                            $dis->setCod_discapacidad(11);
+                            $comp=0;
+                            for($i=0; $i <count($pro); $i++){
+                                if($pro[$i]=="BD"){
+                                    $comp=1;
+                                }
+                            }
+                            if($comp==1){
+                                $dis->setTipo_ayuda(8);
+                            }
+                            else{
+                                $dis->setTipo_ayuda(9);
+                            }
+                            $disca=$dis->getbyAyuda();
+                            if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                                echo'<script type="text/javascript">
+                                alert("Estas discapacidades ya fueron asignadas");
+                                window.location.href="../VIEW/perfil-funcional.php";
+                                </script>';
+                            }
+                        }
+                        elseif($datos[$i]=="BrazoIzquierdo"){
+                            $dis->setCod_discapacidad(10);
+                            $comp=0;
+                            for($i=0; $i <count($pro); $i++){
+                                if($pro[$i]=="BI"){
+                                    $comp=1;
+                                }
+                            }
+                            if($comp==1){
+                                $dis->setTipo_ayuda(8);
+                            }
+                            else{
+                                $dis->setTipo_ayuda(9);
+                            }
+                            $disca=$dis->getbyAyuda();
+                            if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                                echo'<script type="text/javascript">
+                                alert("Estas discapacidades ya fueron asignadas");
+                                window.location.href="../VIEW/perfil-funcional.php";
+                                </script>';
+                            }
+                        }
+                        elseif($datos[$i]=="PiernaIzquierda"){
+                            $dis->setCod_discapacidad(12);
+                            $comp=0;
+                            for($i=0; $i <count($pro); $i++){
+                                if($pro[$i]=="PI"){
+                                    $comp=1;
+                                }
+                            }
+                            if($comp==1){
+                                $dis->setTipo_ayuda(8);
+                            }
+                            else{
+                                $dis->setTipo_ayuda(9);
+                            }
+                            $disca=$dis->getbyAyuda();
+                            if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                                echo'<script type="text/javascript">
+                                alert("Estas discapacidades ya fueron asignadas");
+                                window.location.href="../VIEW/perfil-funcional.php";
+                                </script>';
+                            }
+                        }
+                        elseif($datos[$i]=="PiernaDerecha"){
+                            $dis->setCod_discapacidad(13);
+                            $comp=0;
+                            for($i=0; $i <count($pro); $i++){
+                                if($pro[$i]=="PD"){
+                                    $comp=1;
+                                }
+                            }
+                            if($comp==1){
+                                $dis->setTipo_ayuda(8);
+                            }
+                            else{
+                                $dis->setTipo_ayuda(9);
+                            }
+                            $disca=$dis->getbyAyuda();
+                            if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                                echo'<script type="text/javascript">
+                                alert("Estas discapacidades ya fueron asignadas");
+                                window.location.href="../VIEW/perfil-funcional.php";
+                                </script>';
+                            }
+                        }
+                    }
+                }
+                else{
+                    if($datos[0]=="BrazoDerecho"){
+                        $dis->setCod_discapacidad(11);
+                        $comp=0;
+                        if($_POST["protesis"]=="si"){
+                            $comp=1;
+                        }
+                        if($comp==1){
+                            $dis->setTipo_ayuda(8);
+                        }
+                        else{
+                            $dis->setTipo_ayuda(9);
+                        }
+                        $disca=$dis->getbyAyuda();
+                        if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                            echo'<script type="text/javascript">
+                            alert("Estas discapacidades ya fueron asignadas");
+                            window.location.href="../VIEW/perfil-funcional.php";
+                            </script>';
+                        }
+                    }
+                    elseif($datos[0]=="BrazoIzquierdo"){
+                        $dis->setCod_discapacidad(10);
+                        $comp=0;
+                        if($_POST["protesis"]=="si"){
+                            $comp=1;
+                        }
+                        if($comp==1){
+                            $dis->setTipo_ayuda(8);
+                        }
+                        else{
+                            $dis->setTipo_ayuda(9);
+                        }
+                        $disca=$dis->getbyAyuda();
+                        if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                            echo'<script type="text/javascript">
+                            alert("Estas discapacidades ya fueron asignadas");
+                            window.location.href="../VIEW/perfil-funcional.php";
+                            </script>';
+                        }
+                    }
+                    elseif($datos[0]=="PiernaIzquierda"){
+                        $dis->setCod_discapacidad(12);
+                        $comp=0;
+                        if($_POST["protesis"]=="si"){
+                            $comp=1;
+                        }
+                        if($comp==1){
+                            $dis->setTipo_ayuda(8);
+                        }
+                        else{
+                            $dis->setTipo_ayuda(9);
+                        }
+                        $disca=$dis->getbyAyuda();
+                        if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                            echo'<script type="text/javascript">
+                            alert("Estas discapacidades ya fueron asignadas");
+                            window.location.href="../VIEW/perfil-funcional.php";
+                            </script>';
+                        }
+                    }
+                    elseif($datos[0]=="PiernaDerecha"){
+                        $dis->setCod_discapacidad(13);
+                        $comp=0;
+                        if($_POST["protesis"]=="si"){
+                            $comp=1;
+                        }
+                        if($comp==1){
+                            $dis->setTipo_ayuda(8);
+                        }
+                        else{
+                            $dis->setTipo_ayuda(9);
+                        }
+                        $disca=$dis->getbyAyuda();
+                        if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                            echo'<script type="text/javascript">
+                            alert("Estas discapacidades ya fueron asignadas");
+                            window.location.href="../VIEW/perfil-funcional.php";
+                            </script>';
+                        }
+                    }
+                }
+            }
+            elseif(isset($_POST["paralisis"])&&$_POST["paralisis"]=="si"){
+                $dis->setCod_discapacidad($_POST["para"]);
+                if($_POST["para"]==3){
+                    $disca=new Discapacidad();
+                    $dis->setTipo_ayuda(2);
+                    $disca=$dis->getbyAyuda();
+                    if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                        echo'<script type="text/javascript">
+                        alert("Estas discapacidades ya fueron asignadas");
+                        window.location.href="../VIEW/perfil-funcional.php";
+                        </script>';
+                    }
+                }
+                else{
+                    $datos=$_POST["ayudap"];
+                    for($i=0; $i < count($datos); $i++){
+                        $disca=new Discapacidad();
+                        $dis->setTipo_ayuda($datos[$i]);
+                        $disca=$dis->getbyAyuda();
+                        if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                            echo'<script type="text/javascript">
+                            alert("Estas discapacidades ya fueron asignadas");
+                            window.location.href="../VIEW/perfil-funcional.php";
+                            </script>';
+                        }
+                    }
+                }
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("Complete los datos");
+                window.location.href="../VIEW/perfil-funcional.php";
+                </script>';
+            }
         }
 
         public function postular(){

@@ -82,14 +82,14 @@ class Vivienda{
         $sql="SELECT * FROM vivienda WHERE id_vivienda=".$this->id_vivienda."";
         $result = $conexion->query($sql);
         $viv=new Vivienda();
-        $result->num_rows;
+        if($result->num_rows > 0){
             $row = $result->fetch_assoc();
             $viv->setCalle($row["calle"]);
             $viv->setRegion($row["region"]);
             $viv->setComuna($row["comuna"]);
             $viv->setNum_calle($row["num_calle"]);
             $viv->setId($row["id_vivienda"]);
-        
+        }
         return $viv;
     }
 

@@ -46,6 +46,14 @@
                         <!--*Formulario de Propuesta*-->
                                 <h3>Ubicacion de Sucursal</h3>
                                     <div class="row">
+                                    <div class="col-xl-6">
+                                            <div class="input-group mb-4">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1">Nombre de oferta:</span>
+                                                </div>
+                                                <input type="text" name="nombre" value="">
+                                            </div>
+                                        </div>
                                         <div class="col-xl-6">
                                             <div class="input-group mb-4">
                                                 <div class="input-group-append">
