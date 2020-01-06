@@ -66,7 +66,7 @@
     <input type="checkbox" id="check">
         <label for="check" class="icon">
             <img src="../CSS/open-iconic-master/png/home-3x.png" style="margin-left:10px;" alt="icon name">
-            Menu.
+            Menu Postulante.
         </label>
     <nav class="menu-lateral1">
         <ul>

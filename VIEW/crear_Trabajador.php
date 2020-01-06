@@ -25,74 +25,11 @@
                         <div class="row align-content-center">
                             <div class="col-xl-1 text-center"></div>
                             <div class="col-xl-10 text-center">
-                                <h1>Perfil representante de Empresa</h1>
+                                <h1>Crear Trabajador</h1>
                             </div>
                             <div class="col-xl-1 text-center"></div>
-                            <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
-                                <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
-                                        <h3>Informacion de Gerente, Administrador de cuenta o reprecentante de Empresa. </h3>
-                                        <form method="post" action="../CONTROLER/ControladorBase.php" style="margin-top:30px;">
-                                            <input type="hidden" name="c" value="Postulante_controller" />
-                                            <input type="hidden" name="a" value="update" />
-                                            <div class="row">
-                                                <div class="col-xl-1"></div>
-                                                <div class="col-xl-4">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Nombre:</span>
-                                                        </div>
-                                                        <input type="text" name="rut" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-7"></div>
-
-                                                <div class="col-xl-1"></div>
-                                                <div class="col-xl-5">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
-                                                        </div>
-                                                        <input type="text" name="name" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
-                                                        </div>
-                                                        <input type="text" name="Numero de empleados" value="">
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-xl-1"></div>
-                                                <div class="col-xl-5">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text B-color" id="basic-addon1">@Email:</span>
-                                                        </div>
-                                                        <input type="text" name="numeroAsensores" value="">
-                                                    </div>
-                                                </div>
-                                                <div class="col-xl-6">
-                                                    <div class="input-group mb-2">
-                                                        <div class="input-group-prepend">
-                                                            <span class="input-group-text" id="basic-addon1">Telefono</span>
-                                                        </div>
-                                                        <input type="text" name="numeroAsensores" value="">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12 mb-3" style="margin-top:30px;">
-                                                <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Guardar Información">
-                                            </div>
-                                        </form>    
-                                    </div>
-                            <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->
-
-                                                        <!--Seccion Intermedia de pagina // Mitad de pagina // separacion -->
-
                             <!--****************************|Agregar Personal|******************************************-->         
-                                <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px">
+                                <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px; margin-bottom:150px;">
                                     <h3>Agregar Personal </h3>
                                     <form method="post" action="../CONTROLER/ControladorBase.php">
                                         <input type="hidden" name="c" value="Postulante_controller" />
@@ -130,20 +67,11 @@
                                             <div class="col-xl-4">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Telefono:</span>
-                                                    </div>
-                                                    <input type="text" name="Nombre" value="">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-7">
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Email:</span>
                                                     </div>
                                                     <input type="text" name="Nombre" value="">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-1"></div>
                                             <div class="col-xl-7">
                                                 <div class="input-group mb-2">
                                                     <div class="input-group-prepend">
@@ -167,7 +95,6 @@
                                                     <th scope="col">Apellido</th>
                                                     <th scope="col">@Email</th>
                                                     <th scope="col">Contraseña  <img src="../CSS/open-iconic-master/png/lock-locked-3x.png" alt="Eliminar"></th>
-                                                    <th scope="col">Telefono +56</th>
                                                     <th scope="col">Modificar</th>
                                                     <th scope="col">Eliminar</th>
                                                 </tr>
@@ -178,9 +105,8 @@
                                                     <td>Perez Muñoz</td>
                                                     <td>JPerezMuñoz69@gmail.com</td>
                                                     <td>***********</td>
-                                                    <td><span style="color:red;">+56</span> 930090086</td>
                                                     <td class="text-center">
-                                                        <a href="#"><img src="../CSS/open-iconic-master/png/book-3x.png" alt="Eliminar"></a>
+                                                        <a href="../VIEW/mod-trabajador.php"><img src="../CSS/open-iconic-master/png/book-3x.png" alt="Eliminar"></a>
                                                     </td>
                                                     <td class="text-center">
                                                         <a href="#"><img src="../CSS/open-iconic-master/png/circle-x-3x.png" alt="Eliminar"></a>
@@ -197,7 +123,7 @@
         </div>     
     </div>
     <?php require("../VIEW/esential/footer.php");?>
-<!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************-->    
+<!-- *******************************************|1 TERMINA EL CONTENIDO |*********************************************************************************************************--> 
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
         <script src="../CSS/bootstrap-js/popper.min.js"></script>
         <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>
