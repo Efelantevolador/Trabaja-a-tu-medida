@@ -101,6 +101,23 @@
             }
         }
 
+        public function getDiscapacidad($rut){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM lista_discapacidad INNER JOIN lista_ayuda ON lista_discapacidad.id_disc=lista_ayuda.cod_list_ayu WHERE rut_lista='".$rut."'";
+            $result = $conexion->query($sql);
+            $dis=new Discapacidad();
+            if($result->num_rows >0){
+                $lista=[];
+                while($row= $result->fetch_assoc()){
+                    $dis->setCod_discapacidad($row["cod_disc_lista"]);
+                    $dis->setTipo_ayuda($row["cod_ayu_lista"]);
+                    $lista[]=$dis;
+                }
+            }
+            return $lista;
+        }
+
         public function setDiscapacidad($rut){
             $conn=new Conexion();
             $conexion=$conn->conectar();

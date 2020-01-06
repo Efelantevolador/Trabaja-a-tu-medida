@@ -90,24 +90,6 @@
             $this->num_trabajadores=$num;
         }
 
-        /**
-         * Get the value of direccion
-         */ 
-        public function getDireccion()
-        {
-                return $this->direccion;
-        }
-
-        /**
-         * Set the value of direccion
-         *
-         * @return  self
-         */ 
-        public function setDireccion($direccion)
-        {
-            $this->direccion = $direccion;
-        }
-
         public function getbyId(){
             $conn=new Conexion();
             $conexion=$conn->conectar();

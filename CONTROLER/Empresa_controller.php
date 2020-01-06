@@ -18,9 +18,14 @@
             
         }
 
+        public function create(){
+            $emp=new Empresa();
+            $emp->setRut_empresa($_POST["rut"]);
+            $emp->setNum_trab($_POST["n_trab"]);
+        }
+
         public function update(){
             $emp=new Empresa();
-            $viv=new Vivienda();
             $emp=$_SESSION["Empresa"];
             $viv=$emp->getDireccion();
             $emp->setNom_empresa($_POST["name"]);
@@ -28,11 +33,7 @@
             $emp->setTelefono($_POST["telefono"]);
             $emp->setNum_trab($_POST["empleados"]);
             $emp->setSitio_web($_POST["sitio"]);
-            $viv->setCalle($_POST["calle"]);
-            $viv->setComuna($_POST["comuna"]);
-            $viv->setNum_calle($_POST["ncalle"]);
-            $viv->setRegion($_POST["region"]);
-            if($emp->update()&&$viv->update_vivienda()){
+            if($emp->update()){
                 $emp->setDireccion($viv);
                 $_SESSION["Postulante"]=$emp;
                 echo "<script>update_emp_v()</script>";

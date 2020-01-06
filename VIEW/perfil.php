@@ -228,7 +228,7 @@
                                 <!--****************************|FORMULARIO INFORMACION PERSONAL|******************************************-->    
                                 <!--****************************|Formulario INFORMACION PROFECIONAL|***************************************-->
                                     <div class="col-xl-12 borde-r" style="border-bottom:dotted 2px black;margin-bottom:15px;margin-top:35px;"> 
-                                        <h1>Información Educacional [WIP]</h1>                            
+                                        <h1>Información Educacional</h1>                            
                                         <form method="post" action="../CONTROLER/ControladorBase.php">
                                         <input type="hidden" name="c" value="Postulante_controller" />
                                         <input type="hidden" name="a" value="agregarEstudio" />

@@ -3,37 +3,16 @@
   require_once("Empresa.php");
   class Trabajador
     {
-      private $id_rut;
       private $nombre;
       private $apellido_m;
       private $apellido_p;
       private $mail;
       private $pass;
-      private $telefono;
-      private $cargo;
       private $empresa;
 
       public function __construct()
       {
 
-      }
-
-      /**
-       * Get the value of id_rut
-       */ 
-      public function getId_rut()
-      {
-            return $this->id_rut;
-      }
-
-      /**
-       * Set the value of id_rut
-       *
-       * @return  self
-       */ 
-      public function setId_rut($id_rut)
-      {
-            $this->id_rut = $id_rut;
       }
 
       /**
@@ -109,42 +88,6 @@
       }
 
       /**
-       * Get the value of telefono
-       */ 
-      public function getTelefono()
-      {
-            return $this->telefono;
-      }
-
-      /**
-       * Set the value of telefono
-       *
-       * @return  self
-       */ 
-      public function setTelefono($telefono)
-      {
-            $this->telefono = $telefono;
-      }
-
-      /**
-       * Get the value of cargo
-       */ 
-      public function getCargo()
-      {
-            return $this->cargo;
-      }
-
-      /**
-       * Set the value of cargo
-       *
-       * @return  self
-       */ 
-      public function setCargo($cargo)
-      {
-            $this->cargo = $cargo;
-      }
-
-      /**
        * Get the value of empresa
        */ 
       public function getEmpresa()
@@ -191,17 +134,27 @@
             $row = $result->fetch_assoc();
             $t->setApellido_m($row["apellido_m"]);
             $t->setApellido_p($row["apellido_p"]);
-            $t->setId_rut($row["id_rut"]);
             $t->setNombre($row["nombre"]);
             $t->setMail($row["mail"]);
             $t->setPass($row["pass"]);
-            $t->setTelefono($row["telefono"]);
-            $t->setCargo($row["cargo"]);
             $emp->setRut_empresa($row["empresa"]);
             $t->setEmpresa($emp->getbyId());
         }
         return $t;
         $conexion->close();
+      }
+
+      public function create(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="INSERT INTO trabajador VALUES('".$this->nombre."','".$this->apellido_m."','".$this->apellido_p."','".$this->mail."''".$this->pass."''".$this->empresa."')";
+            if ($conexion->query($sql) === TRUE) {
+                  return "exito";
+            } 
+            else{
+                  return $conexion->error;
+            }
+            $conexion->close();
       }
   }
 ?>

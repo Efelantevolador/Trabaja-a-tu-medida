@@ -1,5 +1,7 @@
 <?php
 require_once("../../MODEL/Postulacion.php");
+require_once("../../MODEL/Postulante.php");
+require_once("../../MODEL/Discapacidad.php");
 require_once("../../MODEL/Empresa.php");
 require_once("../../MODEL/Vivienda.php");
 require_once("../../MODEL/Area.php");
@@ -7,7 +9,16 @@ require_once("../../MODEL/Comuna.php");
 session_start();
 function filtrar(){
     $post=new Postulacion();
-    $lista=$post->getAll();
+    $lista[]="";
+    if(isset($_POST["tipo"])&&isset($_POST["sal"])&&isset($_POST["region"])){
+        $tipo=$_POST["tipo"];
+        $sal=$_POST["sal"];
+        $reg=$_POST["region"];
+        $lista=$post->getbyFiltro($tipo,$sal,$reg);
+    }
+    else{
+        $lista=$post->getAll();
+    }
     foreach($lista as $p):
         $emp=new Empresa();
         $emp->setRut_empresa($p->getEmpresa());
@@ -108,8 +119,7 @@ function filtrar(){
                 # code...
             break;
         }
-        echo '
-            <div class="col-xl-12" style="border:dotted 1px black;;padding:5px;">
+        echo '<div class="col-xl-12" style="border:dotted 1px black;;padding:5px;">
                 <div class="row">
                     <div class="col-xl-11" style="">
                         <h3>
@@ -119,9 +129,9 @@ function filtrar(){
                         </h3>
                     </div>
                     
-                    <div class="col-xl-1" style="">
+                    <div class="col-xl-1" style="" id="estrella">
                         <!--ESTRELLA DE RECOMENDADA  SOLO QUITAR LO QUE ESTA DENTRO PARA QUITAR LA ESTRELLA-->
-                        <img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">
+                        '.recomendar($p->getId()).'
                         <!--ESTRELLA DE RECOMENDADA -->
                     </div>
                     
@@ -140,6 +150,73 @@ function filtrar(){
                 </div>
             </div>';
     endforeach;
+}
+
+function recomendar($p){
+    $postu=new Postulante();
+    $postu=$_SESSION["Postulante"];
+    $dis=new Discapacidad();
+    $pos=new Postulacion();
+    $pos->setId($p);
+    $pos=$pos->getbyId();
+    $dis=$dis->getDiscapacidad($postu->getRut());
+    foreach($dis as $d):
+    switch ($d->getTipo_ayuda()) {
+        case '1':
+            if($pos->getPre1()=="0"&&$pos->getPre6()=="0"&&($pos->getPre7()=="0"||($pos->getPre7()=="1"&&($pos->getPre8()=="0"||$pos->getPre8()=="1")))){
+                return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+            }
+        break;
+        case '2':
+            if($pos->getPre2()=="1"&&$pos->getPre3()=="1"&&($pos->getPre4()=="1"||$pos->getPre4()=="0")&&$pos->getPre7()=="0"){
+                return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+            }
+        break;
+        case '5':
+            if($pos->getPre1()=="0"&&$pos->getPre6()=="0"&&($pos->getPre7()=="0"||($pos->getPre7()=="1"&&($pos->getPre8()=="0"||$pos->getPre8()=="1")))){
+                return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+            }
+        break;
+        case '6':
+            if($pos->getPre1()=="0"&&$pos->getPre2()=="1"&&$pos->getPre3()=="1"&&$pos->getPre4()=="1"&&$pos->getPre6()=="0"&&$pos->getPre7()=="0"){
+                return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+            }
+        break;
+        case '7':
+            if(($pos->getPre6()=="1"||$pos->getPre6()=="0")&&($pos->getPre8()=="0"||$pos->getPre8()=="1")){
+                return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+            }
+        break;
+        case '8':
+            if($d->getCod_discapacidad()=="10"||$d->getCod_discapacidad()=="11"){
+                if($pos->getPre6()=="1"||$pos->getPre6()=="0"){
+                    return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+                }
+            }
+            else{
+                if($pos->getPre7()=="0"||($pos->getPre7()=="1"&&$pos->getPre8()=="0")){
+                    return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+                }
+            }
+        break;
+        case '9':
+            if($d->getCod_discapacidad()=="10"||$d->getCod_discapacidad()=="11"){
+                if($pos->getPre4()=="0"&&$pos->getPre5()=="0"&&($pos->getPre6()=="0"||$pos->getPre6()=="1")){
+                    return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+                }
+            }
+            else{
+                if($pos->getPre2()=="1"&&$pos->getPre3()=="1"&&($pos->getPre4()=="1"||$pos->getPre4()=="0")&&$pos->getPre7()=="0"){
+                    return '<img src="../CSS/open-iconic-master/png/star-3x.png" alt="icon name">';
+                }
+            }
+        break;
+        default:
+            # code...
+        break;
+    }
+    endforeach;
+    
 }
 echo filtrar();
 ?>

@@ -25,8 +25,10 @@ header('Content-Type: text/html; charset=UTF-8');
                         <div class="col-xl-6" style="margin-top:30px;margin-bottom:30px;"> 
                             <h1 class="text-center" style="margin-top:20px;">Formulario Registro</h1>
                             <div class="container">
-                            <form method="post" action="../CONTROLER/.php"><!---*************FORMULARIO****************-->
-                                <div class="row">
+                            <form method="post" action="../CONTROLER/ControladorBase.php"><!---*************FORMULARIO****************-->
+                            <input type="hidden" name="c" value="Postulante_controller" />
+                            <input type="hidden" name="a" value="crear" />        
+                            <div class="row">
                                     <div class="col-xl-12">
                                         <h5>Informacion</h5>
                                     </div>
@@ -35,7 +37,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Rut :</span>
                                             </div>
-                                            <input type="text" value="rut" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="rut" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
@@ -43,7 +45,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" id="basic-addon1">Nombre :</span>
                                                 </div>
-                                                <input type="text" value="name" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                                <input type="text" name="name" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                             </div>
                                     </div>
                                     <div class="col-xl-2"></div>
@@ -52,7 +54,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Apellido Paterno :</span>
                                             </div>
-                                            <input type="text" value="apellidoP" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="apellidoP" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
@@ -60,7 +62,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Apellido Materno :</span>
                                             </div>
-                                            <input type="text" value="apellidoM" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="apellidoM" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-12"></div>
@@ -69,7 +71,15 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">@email :</span>
                                             </div>
-                                            <input type="text" value="email" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="email" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="input-group mb-2">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1">Contraseña :</span>
+                                            </div>
+                                            <input type="password" name="password" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-5">
@@ -77,7 +87,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Telefono :</span>
                                             </div>
-                                            <input type="text" value="" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="telefono" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-1"></div>
@@ -89,7 +99,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Dia :</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect02">
+                                            <select class="custom-select" name="day" id="inputGroupSelect02">
                                                 <option selected disabled>-Dia-</option>
                                                 <?php  for($i=1;$i<=31;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
                                             </select>
@@ -100,7 +110,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Mes :</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect02">
+                                            <select name="month" class="custom-select" id="inputGroupSelect02">
                                                 <option value="" selected disabled>- Mes -</option>
                                                 <option value="01">Enero</option>
                                                 <option value="02">Febrero</option>
@@ -122,13 +132,9 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Año :</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect02">
+                                            <select name="year" class="custom-select" id="inputGroupSelect02">
                                                 <option value="" selected disabled>- Año -</option>
-<<<<<<< HEAD
-                                                <?php  for($i=1950;$i<=2001;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
-=======
-                                                <?php  for($i=1950;$i<=2020;$i++) { echo "<option value='".$i."'>".$i."</option>"; } ?>
->>>>>>> 234719c27248bbf5684084564d092ff3843c2d35
+                                                <?php  for($i=2002;$i>=1942;$i--) { echo "<option value='".$i."'>".$i."</option>"; } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -140,7 +146,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Región :</label>
                                             </div>
-                                            <select class="custom-select" id="inputGroupSelect02">
+                                            <select class="custom-select" name="region" id="region">
                                                 <option selected disabled>- Región -</option>
                                                 <?php
                                                     $r=new Region_controller;
@@ -159,11 +165,9 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-append">
                                                 <label class="input-group-text" for="inputGroupSelect02">Comuna :</label>
                                             </div>
-<<<<<<< HEAD
-                                            
-=======
-                                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
->>>>>>> 234719c27248bbf5684084564d092ff3843c2d35
+                                            <select name="comuna" class="custom-select" id="comuna">
+                                                    
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-xl-2"></div>
@@ -172,7 +176,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">Calle :</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" class="form-control" name="calle" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-5">
@@ -180,7 +184,7 @@ header('Content-Type: text/html; charset=UTF-8');
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text" id="basic-addon1">N° Calle #:</span>
                                             </div>
-                                            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input type="text" name="ncalle" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>
                                     </div>
                                     <div class="col-xl-1"></div>
@@ -201,6 +205,22 @@ header('Content-Type: text/html; charset=UTF-8');
         <script src="../CSS/bootstrap-js/jquery-3.2.1.slim.min.js"></script>
         <script src="../CSS/bootstrap-js/popper.min.js"></script>
         <script src="../CSS/bootstrap-js/bootstrap.min.js"></script>
-        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $('#region').on('change' ,function(){
+                var reg_id=$('#region').val()
+                $.ajax({
+                    type: 'POST',
+                    url: 'esential/get_comunas.php',
+                    data: {'reg_id' : reg_id}
+                })
+                .done(function(lista){
+                    $('#comuna').html(lista)
+                })
+                .fail(function(){
+                    alert("FALLO")
+                })
+            });
+        </script>
     </body>
 </html>

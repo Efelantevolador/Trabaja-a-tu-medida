@@ -250,6 +250,43 @@
             $conexion->close();
         }
 
+        public function getbyFiltro($tipo,$sal,$reg){
+            $conn=new Conexion();
+            $conexion=$conn ->conectar();
+            $sql="SELECT * FROM postulacion INNER JOIN vivienda ON postulacion.direccion=vivienda.id_vivienda WHERE tipo_trabajo='".$tipo."' AND sueldo_postu='".$sal."' AND region='".$reg."'";
+            $result = $conexion->query($sql);
+            $lista=[];
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {
+                    $pos=new Postulacion();
+                    $pos->setNombre($row["nom_postulacion"]);
+                    $pos->setId($row["cod_postulacion"]);
+                    $pos->setArea($row["area"]);
+                    $pos->setDescrip($row["descrip"]);
+                    $pos->setEmpresa($row["empresa"]);
+                    $pos->setN_pisos($row["num_pisos"]);
+                    $pos->setN_ascensor($row["num_ascensores"]);
+                    $pos->setN_banos($row["num_banosdis"]);
+                    $pos->setSalario($row["sueldo_postu"]);
+                    $pos->setDireccion($row["direccion"]);
+                    $pos->setTipo_trabajo($row["tipo_trabajo"]);
+                    $pos->setProfesion($row["profesion"]);
+                    $pos->setEspacio_trabajo($row["espacio_trabajo"]);
+                    $pos->setPregunta1($row["pregunta_1"]);
+                    $pos->setPregunta2($row["pregunta_2"]);
+                    $pos->setPregunta3($row["pregunta_3"]);
+                    $pos->setPregunta4($row["pregunta_4"]);
+                    $pos->setPregunta5($row["pregunta_5"]);
+                    $pos->setPregunta6($row["pregunta_6"]);
+                    $pos->setPregunta7($row["pregunta_7"]);
+                    $pos->setPregunta8($row["pregunta_8"]);
+                    $lista[]=$pos;
+                }
+            }
+            return $lista;
+            $conexion->close();
+        }
+
         public function getPostulantes(){
             $conn=new Conexion();
             $conexion=$conn ->conectar();

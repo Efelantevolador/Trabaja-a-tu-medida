@@ -1,15 +1,15 @@
 <script>
     function create_v(){
         alert("Registrado correctamente");
-        window.location="../view/index.php";
+        window.location="../view/login.php";
     }
     function create_f(){
         alert("Este usuario ya está registrado");
-        window.location="../view/registrarU.php";
+        window.location="../view/register.php";
     }
     function create_null(){
         alert("Complete todos los campos");
-        window.location="../view/registrarU.php";
+        window.location="../view/register.php";
     }
     function update_v(){
         alert("Los datos fueron guardados exitosamente");
@@ -70,11 +70,12 @@
                 $p=$p->getbyId($_POST["rut"]);
                 if($p->getRut()==null&&trim($_POST["email"])!=''&&trim($_POST["password"])!=''
                 &&trim($_POST["name"])!=''&&trim($_POST["apellidoP"])!=''&&trim($_POST["apellidoM"])!=''
-                &&trim($_POST["calle"])!=''&&trim($_POST["ciudad"])!=''&&trim($_POST["comuna"])!=''&&trim($_POST["ncalle"])!=''){
+                &&trim($_POST["calle"])!=''&&trim($_POST["comuna"])!=''&&trim($_POST["ncalle"])!=''&&trim($_POST["telefono"])!=''){
                     $p->setRut($_POST["rut"]);
                     $p->setCorreo($_POST["email"]);
                     $p->setPass($_POST["password"]);
                     $p->setNombre($_POST["name"]);
+                    $p->setTelefono($_POST["telefono"]);
                     $p->setApellido_Paterno($_POST["apellidoP"]);
                     $p->setApellido_Materno($_POST["apellidoM"]);
                     $p->setFecha_nacimiento($_POST["year"]."-".$_POST["month"]."-".$_POST["day"]);
@@ -294,6 +295,31 @@
                         alert("Estas discapacidades ya fueron asignadas");
                         window.location.href="../VIEW/perfil-funcional.php";
                         </script>';
+                    }
+                }
+                elseif($_POST["para"]==5){
+                    $disca=new Discapacidad();
+                    $dis->setTipo_ayuda(2);
+                    $disca=$dis->getbyAyuda();
+                    if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                        echo'<script type="text/javascript">
+                        alert("Estas discapacidades ya fueron asignadas");
+                        window.location.href="../VIEW/perfil-funcional.php";
+                        </script>';
+                    }
+                    if(isset($_POST["ayudap"])){
+                        $datos=$_POST["ayudap"];
+                        for($i=0; $i < count($datos); $i++){
+                            $disca=new Discapacidad();
+                            $dis->setTipo_ayuda($datos[$i]);
+                            $disca=$dis->getbyAyuda();
+                            if($disca->setDiscapacidad($pos->getRut())=="copia"){
+                                echo'<script type="text/javascript">
+                                alert("Estas discapacidades ya fueron asignadas");
+                                window.location.href="../VIEW/perfil-funcional.php";
+                                </script>';
+                            }
+                        }
                     }
                 }
                 else{

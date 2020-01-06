@@ -11,7 +11,7 @@
     <body>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     
-<?php require("../VIEW/esential/navbar.php")?>
+<?php require("../VIEW/esential/navbar.php");?>
 
     <div class="container-fluid" style="margin-top:20px;margin-bottom:20px">
             <div class="row"> <!--row: se utiliza para definir una tabla de posicionamiento donde utilizar despues las clases Col-xs-?  -->
@@ -24,14 +24,13 @@
                         <h2>Propuestas laborales</h2>
                         <div class="container">
                             <!-- DOGE AQUI ESTA EL FILTRO DE SALARIO Y HORARIO-->
-                                <form method="post" action="#">
                                     <div class="row">                              
                                         <div class="col-xl-4">
                                             <div class="input-group">
                                                 <div class="input-group-append">
                                                     <label class="input-group-text" for="comboboxP">Salario Estimado :</label>
                                                 </div>
-                                                <select class="custom-select">
+                                                <select class="custom-select" id="sal">
                                                     <option value="" selected disabled>-Seleccionar-</option>
                                                     <option value="0">menos de $300.000</option>     
                                                     <option value="1">entre $300.000 - $400.000</option>  
@@ -48,9 +47,35 @@
                                         <div class="col-xl-4">
                                             <div class="input-group">
                                                 <div class="input-group-append">
+                                                    <label class="input-group-text" for="comboboxP">Salario Estimado :</label>
+                                                </div>
+                                                <select name="region" class="custom-select" id="region">
+                                                    <option disabled>- Región -</option>
+                                                    <option value="15">Región de Arica y Parinacota</option>
+                                                    <option value="1">Región de Tarapacá</option>
+                                                    <option value="2">Región de Antofagasta</option>
+                                                    <option value="3">Región de Atacama</option>
+                                                    <option value="4">Región de Coquimbo</option>
+                                                    <option value="5">Región de Valparaíso</option>
+                                                    <option value="13">Región de Metropolitana de Santiago</option>
+                                                    <option value="6">Región de Libertador General Bernardo O'Higgins</option>
+                                                    <option value="7">Región de Maule</option>
+                                                    <option value="16">Región de Ñuble</option>
+                                                    <option value="8">Región de Biobío</option>
+                                                    <option value="9">Región de La Araucanía</option>
+                                                    <option value="14">Región de Los Ríos</option>
+                                                    <option value="10">Región de Los Lagos</option>
+                                                    <option value="11">Región de Aysén del General Carlos Ibáñez del Campo</option>
+                                                    <option value="12">Región de Magallanes y de la Antártica Chilena</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-4">
+                                            <div class="input-group">
+                                                <div class="input-group-append">
                                                     <label class="input-group-text" for="comboboxP">Tipo de trabajo :</label>
                                                 </div>
-                                                <select class="custom-select">
+                                                <select class="custom-select" id="tipo">
                                                     <option value="" selected disabled>-Seleccionar-</option>
                                                     <option value="1">Part-time</option>
                                                     <option value="2">Full-time</option>
@@ -65,10 +90,9 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-2">
-                                            <input type="submit" class="btn btn-outline-success btn-lg btn-block" value="Filtrar">
+                                            <input type="submit" class="btn btn-outline-success btn-lg btn-block" onclick="javascript:byFiltro()" value="Filtrar">
                                         </div>
                                     </div> 
-                                </form>
                             <!-- DOGE AQUI ESTA EL FILTRO DE SALARIO Y HORARIO-->
                             <div class="row">
                                 <div class="col-xl-4"> 
@@ -107,14 +131,29 @@
                 $.ajax({
                     type: 'POST',
                     url: 'esential/filtro.php',
-                    //data: {'reg_id' : reg_id, 'cod' : cod}
                 })
                 .done(function(lista){
                     $('#ofertas').html(lista)
                 })
                 .fail(function(){
-                    alert("FALLO")
                 })
+                $("input[type=submit]").click(function(){
+                    var tipo=$('#tipo').val();
+                    var sal=$('#sal').val();
+                    var reg=$('#region').val();
+                    $.ajax({
+                    type: 'POST',
+                    url: 'esential/filtro.php',
+                    data: {'tipo' : tipo, 'sal' : sal,'region' : reg}
+                    })
+                    .done(function(lista){
+                        $('#ofertas').html(lista)
+                    })
+                    .fail(function(){
+                        
+                    })
+                });
+
         });
         </script>
         
