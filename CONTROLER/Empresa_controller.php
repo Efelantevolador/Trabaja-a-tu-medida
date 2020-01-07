@@ -18,6 +18,44 @@
             
         }
 
+        public function update_trabajador($cod){
+            $trab=new Trabajador();
+            $trab->setNombre($_POST["name"]);
+            $trab->setApellido_p($_POST["apellidoP"]);
+            $trab->setApellido_m($_POST["apellidoM"]);
+            $trab->setMail($cod);
+            $trab->setPass($_POST["pass"]);
+            if($trab->update()=="exito"){
+                echo'<script type="text/javascript">
+                alert("Modificado exitosamente");
+                window.location.href="../VIEW/crear_Trabajador.php";
+                </script>';
+            }
+            else{
+                echo'<script type="text/javascript">
+                alert("Error al modificar");
+                window.location.href="../VIEW/crear_Trabajador.php";
+                </script>'; 
+            }
+        }
+
+        public function delete_trabajador($cod){
+            $trab=new Trabajador();
+            $trab->setMail($cod);
+            if($trab->delete()=="exito"){
+                echo'<script type="text/javascript">
+                    alert("Eliminado exitosamente");
+                    window.location.href="../VIEW/crear_Trabajador.php";
+                </script>';
+            }
+            else{
+                echo'<script type="text/javascript">
+                    alert("Error al eliminar");
+                    window.location.href="../VIEW/crear_Trabajador.php";
+                </script>';
+            }
+        }
+
         public function create(){
             $emp=new Empresa();
             $emp->setRut_empresa($_POST["rut"]);

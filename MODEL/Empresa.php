@@ -1,5 +1,6 @@
 <?php
   require_once("conexion.php");
+  require_once("Trabajador.php");
   class Empresa
     {
         private $rut_empresa;
@@ -95,7 +96,6 @@
             $conexion=$conn->conectar();
             $sql="SELECT * FROM empresa WHERE rut_empresa='".$this->rut_empresa."'";
             $emp=new Empresa();
-            $viv=new Vivienda();
             $result = $conexion->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
@@ -140,6 +140,27 @@
                 $emp->setSitio_web($row["sitio_web"]);
             }
             return $emp;
+        }
+
+        public function getTrabajadores(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="SELECT * FROM trabajador WHERE empresa='".$this->rut_empresa."'";
+            $result = $conexion->query($sql);
+            $lista=[];
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    $trab=new Trabajador();
+                    $trab->setNombre($row["nombre"]);
+                    $trab->setApellido_p($row["apellido_p"]);
+                    $trab->setApellido_m($row["apellido_m"]);
+                    $trab->setMail($row["mail"]);
+                    $trab->setPass($row["pass"]);
+                    $trab->setEmpresa($row["empresa"]);
+                    $lista[]=$trab;
+                }
+            }
+            return $lista;
         }
     }
 ?>

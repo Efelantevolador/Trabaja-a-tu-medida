@@ -123,6 +123,25 @@
             $this->apellido_p = $apellido_p;
       }
 
+      public function getbyId(){
+      $conn=new Conexion();
+      $conexion=$conn->conectar();
+      $sql="SELECT * FROM trabajador WHERE mail='".$this->mail."'";
+      $result = $conexion->query($sql);
+      $t=new Trabajador();
+      if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $t->setApellido_m($row["apellido_m"]);
+            $t->setApellido_p($row["apellido_p"]);
+            $t->setNombre($row["nombre"]);
+            $t->setMail($row["mail"]);
+            $t->setPass($row["pass"]);
+            $t->setEmpresa($row["empresa"]);
+      }
+        return $t;
+        $conexion->close();
+      }
+
       public function login_trabajador(){
         $conn=new Conexion();
         $conexion=$conn->conectar();
@@ -147,7 +166,33 @@
       public function create(){
             $conn=new Conexion();
             $conexion=$conn->conectar();
-            $sql="INSERT INTO trabajador VALUES('".$this->nombre."','".$this->apellido_m."','".$this->apellido_p."','".$this->mail."''".$this->pass."''".$this->empresa."')";
+            $sql="INSERT INTO trabajador VALUES('".$this->nombre."','".$this->apellido_m."','".$this->apellido_p."','".$this->mail."','".$this->pass."','".$this->empresa."')";
+            if ($conexion->query($sql) === TRUE) {
+                  return "exito";
+            } 
+            else{
+                  return $conexion->error;
+            }
+            $conexion->close();
+      }
+
+      public function delete(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="DELETE FROM trabajador WHERE mail='".$this->mail."'";
+            if ($conexion->query($sql) === TRUE) {
+                  return "exito";
+            } 
+            else{
+                  return $conexion->error;
+            }
+            $conexion->close();
+      }
+
+      public function update(){
+            $conn=new Conexion();
+            $conexion=$conn->conectar();
+            $sql="UPDATE trabajador set nombre='".$this->nombre."', apellido_m='".$this->apellido_m."', apellido_p='".$this->apellido_p."', pass='".$this->pass."' WHERE mail='".$this->mail."'";  
             if ($conexion->query($sql) === TRUE) {
                   return "exito";
             } 

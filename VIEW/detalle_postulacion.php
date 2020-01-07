@@ -2,7 +2,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Login</title>
+        <title>Detalle postulacion</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="../CSS/miestilo.css">
@@ -29,7 +29,6 @@
         $viv=new Vivienda();
         $emp=new Empresa();
         $postu=new Postulacion();
-        $p=new Postulante();
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     
@@ -756,23 +755,17 @@
                             <!--PERSONAS POSTULANDO-->
                             <h3 style="margin-top:40px;">Postulantes interesados:</h3>
                                 <div class="container">
+                                    <?php 
+                                        $listall=$postu->getPostulantes();
+                                        foreach($listall as $p):
+                                    ?>
                                     <div class="row">
                                         <div class="col-xl-5" style="border:solid 1px black;margin-top:5px;">
-                                            <h4><a href="info_postulante.php">Nombre del Postulante</a></h4>
-                                            <h4>Rut: 19.529.387-2</h4>
-                                        </div>
-                                        <div class="col-xl-1"></div>
-                                        <div class="col-xl-5" style="border:solid 1px black;margin-top:5px;">
-                                            <h4><a href="info_postulante.php">Nombre del Postulante</a></h4>
-                                            <h4>Rut: 19.529.387-2</h4>
-                                        </div>
-                                        <div class="col-xl-1"></div>
-                                        <div class="col-xl-5" style="border:solid 1px black;margin-top:5px;">
-                                            <h4><a href="info_postulante.php">Nombre del Postulante</a></h4>
-                                            <h4>Rut: 19.529.387-2</h4>
+                                            <h4><a href="info_postulante.php?rut=<?php echo $p->getRut();?>"><?php echo $p->getRut();?></a></h4>
                                         </div>
                                         <div class="col-xl-1"></div>
                                     </div>
+                                        <?php endforeach;?>
                                 </div>
                             <!--PERSONAS POSTULANDO-->
                         </div>

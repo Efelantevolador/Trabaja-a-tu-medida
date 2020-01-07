@@ -18,15 +18,21 @@ class Trabajador_controller Extends Controlador_Base{
             if($trab->create()=="exito"){
                 echo'<script type="text/javascript">
                     alert("Trabajador creado exitosamente");
-                    window.location.href="../VIEW/";
+                    window.location.href="../VIEW/crear_Trabajador.php";
                 </script>';
             }
             else{
                 echo'<script type="text/javascript">
                     alert("Error al crear al trabajador");
-                    window.location.href="../VIEW/";
+                    window.location.href="../VIEW/crear_Trabajador.php";
                 </script>';
             }
+        }
+        else{
+            echo'<script type="text/javascript">
+                    alert("Complete todos los campos");
+                    window.location.href="../VIEW/crear_Trabajador.php";
+                </script>';
         }
     }
 }

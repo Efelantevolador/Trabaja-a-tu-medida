@@ -59,7 +59,7 @@
             }
         }
     }
-    if(isset($_GET["cod"])&&isset($_GET["c"])){
+    if(isset($_GET["cod"])&&isset($_GET["c"])&&isset($_GET["a"])){
         $prueba=new Controlador_Base($_GET["c"],$_GET["a"],$_GET["cod"]);
     }
     else{

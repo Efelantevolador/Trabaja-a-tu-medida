@@ -10,14 +10,35 @@
     </head>
     <body>
     <?php
-        require_once("../MODEL/Postulante.php");
-        require_once("../MODEL/Vivienda.php");
+        require_once("../MODEL/Trabajador.php");
+        require_once("../MODEL/Empresa.php");
         session_start();
-        $p=new Postulante();
-        if(isset($_SESSION["Postulante"])){
-            $p=$_SESSION["Postulante"];
-            $viv=new Vivienda();
-            $viv=$p->getVivienda();
+        if(isset($_GET["mail"])){
+            $trab=new Trabajador();
+            if(isset($_SESSION["Empresa"])){
+                $emp=new Empresa();
+                $emp=$_SESSION["Empresa"];
+                $trab->setMail($_GET["mail"]);
+                $trab=$trab->getbyId();
+                if($trab->getEmpresa()!=$emp->getRut_empresa()){
+                    echo'<script type="text/javascript">
+                        alert("El trabajador no es de su empresa");
+                        window.location.href="../VIEW/crear_Trabajador.php";
+                    </script>';
+                }
+            }
+            else{
+                echo'<script type="text/javascript">
+                    alert("No tienes permiso para entrar aquí");
+                    window.location.href="../VIEW/login.php";
+                </script>';
+            }
+        }
+        else{
+            echo'<script type="text/javascript">
+                alert("Trabajador no especificado");
+                window.location.href="../VIEW/crear_Trabajador.php";
+            </script>';
         }
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
@@ -39,9 +60,7 @@
                             <!--****************************|Agregar Personal|******************************************-->         
                                 <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px; margin-bottom:150px;">
                                     <h3>Agregar Personal </h3>
-                                    <form method="post" action="../CONTROLER/ControladorBase.php">
-                                        <input type="hidden" name="c" value="Postulante_controller" />
-                                        <input type="hidden" name="a" value="update" />
+                                    <form method="post" action="../CONTROLER/ControladorBase.php?c=Empresa_controller&a=update_trabajador&cod=<?php echo $trab->getMail();?>">
                                         <div class="row" style="margin-top:20px;">
                                             <div class="col-xl-1"></div>
                                             <div class="col-xl-6">
@@ -49,7 +68,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Nombre:</span>
                                                     </div>
-                                                    <input type="text" name="Nombre" value="">
+                                                    <input type="text" name="name" value="<?php echo $trab->getNombre();?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-5">
@@ -60,7 +79,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
                                                     </div>
-                                                    <input type="text" name="Nombre" value="">
+                                                    <input type="text" name="apellidoP" value="<?php echo $trab->getApellido_p();?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-7">
@@ -68,7 +87,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
                                                     </div>
-                                                    <input type="text" name="Nombre" value="">
+                                                    <input type="text" name="apellidoM" value="<?php echo $trab->getApellido_m();?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-1"></div>
@@ -77,7 +96,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Email:</span>
                                                     </div>
-                                                    <input type="text" name="Nombre" value="">
+                                                    <input type="text" disabled name="mail" value="<?php echo $trab->getMail();?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-7">
@@ -85,7 +104,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Password:</span>
                                                     </div>
-                                                    <input type="text" name="Nombre" value="">
+                                                    <input type="text" name="pass" value="<?php echo $trab->getPass();?>">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4"></div>
