@@ -76,7 +76,14 @@
             $p=new Postulacion();
             $viv=new Vivienda();
             $emp=new Empresa();
-            $emp=$_SESSION["Empresa"];
+            if(isset($_SESSION["Empresa"])){
+                $emp=$_SESSION["Empresa"];
+            }
+            else{
+                $trab=new Trabajador();
+                $trab=$_SESSION["Trabajador"];
+                $emp=$trab->getEmpresa();
+            }
             $p->setNombre($_POST["nombre"]);
             $viv->setRegion($_POST["region"]);
             $viv->setComuna($_POST["comuna"]);

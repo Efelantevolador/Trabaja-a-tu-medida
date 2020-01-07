@@ -1,7 +1,7 @@
 <?php
-require_once "../MODEL/Region.php";
-require_once "../MODEL/Comuna.php";
-    class Region_controller {
+require_once("../MODEL/Region.php");
+require_once("../MODEL/Comuna.php");
+    class Region_controller{
         public function __construct() {
             
         } 

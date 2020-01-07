@@ -1,5 +1,5 @@
 <?php
-    class Estudio_controller {
+    class Estudio_controller Extends Controlador_Base{
         public function __construct() {
             
         } 

@@ -25,11 +25,11 @@
                                     <h1>Bienvenido </h1>
                                     <h3>Eres nuevo, Postulante o Empresa.</h3>
                                     <div style="margin-top:100px;">
-                                        <a class="btn btn-success btn-lg" href='#' role="button">
+                                        <a class="btn btn-success btn-lg" href='registroEmpresa.php' role="button">
                                             Registro Empresa &raquo;
                                         </a>
                                         <h1>o</h1>
-                                        <a class="btn btn-primary btn-lg" href='#2' role="button">
+                                        <a class="btn btn-primary btn-lg" href='register.php' role="button">
                                             Registro Postulante &raquo;
                                         </a>
                                     </div>

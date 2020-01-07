@@ -13,13 +13,19 @@
     
     <?php
         require_once("../MODEL/Empresa.php");
+        require_once("../MODEL/Trabajador.php");
         require_once("../CONTROLER/Region_controller.php");
         require_once("../MODEL/Area.php");
         session_start();
         $emp=new Empresa();
         $ar=new Area();
-        if(isset($_SESSION["Empresa"])){
-            $emp=$_SESSION["Empresa"];
+        if(isset($_SESSION["Empresa"])||isset($_SESSION["Trabajador"])){
+            if(isset($_SESSION["Empresa"])){
+                $emp=$_SESSION["Empresa"];
+            }
+            else{
+                $trab=$_SESSION["Trabajador"];
+            }
         }
     ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->

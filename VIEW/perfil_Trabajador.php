@@ -9,6 +9,20 @@
         <link rel="stylesheet" href="../CSS/bootstrap-css/bootstrap.min.css">
     </head>
     <body>
+    <?php
+    require_once("../MODEL/Empresa.php");
+    require_once("../MODEL/Trabajador.php");
+    session_start();
+    if(isset($_SESSION["Trabajador"])){
+        $trab=new Trabajador();
+        $trab=$_SESSION["Trabajador"];
+        $emp=new Empresa();
+        $emp=$trab->getEmpresa();
+    }
+    else{
+
+    }
+    ?>
 <!-- ********************************************|1 CONTENIDO |*******************************************************************************************************************-->
     
     <?php require("../VIEW/esential/navbar.php")?>
@@ -24,26 +38,15 @@
                             <div class="row align-content-center">
                                 <div class="col-xl-1 text-center"></div>
                                 <div class="col-xl-10 text-center">
-                                    <h1>Crear Trabajador</h1>
+                                    <h1>Perfil Trabajador</h1>
                                 </div>
                                 <div class="col-xl-1 text-center"></div>
                                 <!--****************************|Informacion Personal|******************************************-->         
                                     <div class="col-xl-12" style="border-top:dotted 2px black;padding-top:5px; border-bottom:dotted 2px; margin-bottom:150px;">
                                         <h3 style="margin-top:10px;">Informacion Personal </h3>
-                                        <p>Rut, Nombre completo, email, Fecha nacimiento y Telefono</p>
                                         <input type="hidden" name="c" value="Postulante_controller" />
                                         <input type="hidden" name="a" value="update" />
                                         <div class="row" style="margin-top:20px;margin-bottom:30px;">
-                                            <div class="col-xl-1"></div>
-                                            <div class="col-xl-6">
-                                                <div class="input-group mb-2">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="basic-addon1">Rut:</span>
-                                                    </div>
-                                                    <input type="text" name="rut" value="" disabled style="background:#E9E8E8;">
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-5"></div>
 
                                             <div class="col-xl-1"></div>
                                             <div class="col-xl-4">
@@ -51,7 +54,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Nombre:</span>
                                                     </div>
-                                                    <input type="text" name="name" value="" disabled style="background:#E9E8E8;">
+                                                    <input type="text" name="name" value="<?php echo $trab->getNombre()?>" disabled style="background:#E9E8E8;">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
@@ -59,7 +62,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Apellido Paterno:</span>
                                                     </div>
-                                                    <input type="text" name="ApellidoP" value="" disabled style="background:#E9E8E8;">
+                                                    <input type="text" name="ApellidoP" value="<?php echo $trab->getApellido_p()?>" disabled style="background:#E9E8E8;">
                                                 </div>
                                             </div>
                                             <div class="col-xl-3"></div>
@@ -69,7 +72,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Apellido Materno:</span>
                                                     </div>
-                                                    <input type="text" name="Apellido M" value="" disabled style="background:#E9E8E8;">
+                                                    <input type="text" name="Apellido M" value="<?php echo $trab->getApellido_m()?>" disabled style="background:#E9E8E8;">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4">
@@ -77,7 +80,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">@email:</span>
                                                     </div>
-                                                    <input type="text" name="mail" value="" disabled style="background:#E9E8E8;">
+                                                    <input type="text" name="mail" value="<?php echo $trab->getMail()?>" disabled style="background:#E9E8E8;">
                                                 </div>
                                             </div>
                                             <div class="col-xl-3"></div>
@@ -87,7 +90,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text" id="basic-addon1">Empresa:</span>
                                                     </div>
-                                                    <input type="text" name="empresa" value="" disabled style="background:#E9E8E8;">
+                                                    <input type="text" name="empresa" value="<?php echo $emp->getNom_empresa()?>" disabled style="background:#E9E8E8;">
                                                 </div>
                                             </div>
                                             <div class="col-xl-3"></div>

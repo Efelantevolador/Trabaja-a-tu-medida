@@ -9,7 +9,7 @@
     }
     function login_t(){
         alert("Bienvenido");
-        window.location="../view/perfil.php";
+        window.location="../view/perfil_Trabajador.php";
     }
     function login_f(){
         alert("Este usuario no se encuentra registrado");
